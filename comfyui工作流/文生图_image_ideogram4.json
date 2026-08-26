@@ -1,0 +1,2757 @@
+{
+  "id": "fdcfc2b2-168f-4f3d-a1d0-6986b802fce5",
+  "revision": 0,
+  "last_node_id": 177,
+  "last_link_id": 244,
+  "nodes": [
+    {
+      "id": 100,
+      "type": "MarkdownNote",
+      "pos": [
+        3665.4533419277172,
+        517.6296821124008
+      ],
+      "size": [
+        640,
+        980
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Ideogram 4.0",
+      "properties": {},
+      "widgets_values": [
+        "### About the model\n\nThe model is trained on **structured JSON captions** (scene summary, style block, background, and optional per-object descriptions with bounding boxes and hex color palettes). Official inference validates prompts against that schema. Guidance uses **flow-matching** with **asymmetric classifier-free guidance** (the unconditional pass drops text tokens)—not a separate negative prompt string.\n\n**Practical strengths:** flexible resolution (about **256–2048 px per side**), layout via normalized bounding boxes `[y_min, x_min, y_max, x_max]` on a 0–1000 grid, palette control with hex colors, and strong in-image text rendering when described in JSON.\n\n**NOTE: If you see \"Image blocked by safety filter\" it is because of safety training in the model itself, ComfyUI does not have any safety filter.**\n---\n\n### How to build prompts here\n\nThis template supports **three** ways to produce the JSON the model expects:\n\n**(a) Raw input**: Paste or type directly into the subgraph **CLIP Text Encode** prompt (or the exposed **prompt** widget). You may use plain natural language, but **structured JSON** (as in the subgraph default) gives the most predictable layout and style control.\n\n**(b) Model-assisted (LLM)**: Enable the **LLM Prompt Builder** group (Gemma 4). Enter a short idea in **user_prompt**; the system prompt asks Gemma to emit schema-compliant JSON. Preview the result, then copy or route it to the image subgraph prompt."
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 99,
+      "type": "MarkdownNote",
+      "pos": [
+        3886.827652808368,
+        -231.98225926575049
+      ],
+      "size": [
+        530,
+        980
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "Note: Model link",
+      "properties": {},
+      "widgets_values": [
+        "Guide: [Subgraph](https://docs.comfy.org/interface/features/subgraph)\n\n## Model Links (for Local Users)\n\n**vae**\n\n- [flux2-vae.safetensors](https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors)\n\n**diffusion_models**\n\n- [ideogram4_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Ideogram-4/resolve/main/diffusion_models/ideogram4_fp8_scaled.safetensors)\n- [ideogram4_unconditional_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Ideogram-4/resolve/main/diffusion_models/ideogram4_unconditional_fp8_scaled.safetensors)\n\n**text_encoders**\n\n- [qwen3vl_8b_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_8b_fp8_scaled.safetensors)\n- [gemma4_e4b_it_fp8_scaled.safetensors](https://huggingface.co/Comfy-Org/gemma-4/resolve/main/text_encoders/gemma4_e4b_it_fp8_scaled.safetensors)\n\n\n## Model Storage Location\n\n```\n📂 ComfyUI/\n├── 📂 models/\n│   ├── 📂 vae/\n│   │   └── flux2-vae.safetensors\n│   ├── 📂 diffusion_models/\n│   │   ├── ideogram4_fp8_scaled.safetensors\n│   │   └── ideogram4_unconditional_fp8_scaled.safetensors\n│   └── 📂 text_encoders/\n│       ├── qwen3vl_8b_fp8_scaled.safetensors\n│       └── gemma4_e4b_it_fp8_scaled.safetensors\n```\n\n## Report Issue\n\nNote: Please update ComfyUI first ([guide](https://docs.comfy.org/installation/update_comfyui)) and prepare required models. Desktop/Cloud updates follow stable releases, so some nightly-supported models may not be available yet.\n\n- Cannot run / runtime errors: [ComfyUI/issues](https://github.com/comfyanonymous/ComfyUI/issues)\n- UI / frontend issues: [ComfyUI_frontend/issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)\n- Workflow issues: [workflow_templates/issues](https://github.com/Comfy-Org/workflow_templates/issues)\n"
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 172,
+      "type": "PreviewImage",
+      "pos": [
+        5909.272911503292,
+        -388.9867007872411
+      ],
+      "size": [
+        1030.9288199403536,
+        643.0048189193035
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 239
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 169,
+      "type": "Ideogram4PromptBuilderKJ",
+      "pos": [
+        5232.3847840462595,
+        -397.97491723773754
+      ],
+      "size": [
+        593.9344029075464,
+        510
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "import_json",
+          "shape": 7,
+          "type": "STRING",
+          "link": 238
+        },
+        {
+          "name": "bboxes",
+          "shape": 7,
+          "type": "BOUNDING_BOX",
+          "link": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 243
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 244
+        }
+      ],
+      "outputs": [
+        {
+          "name": "prompt",
+          "type": "STRING",
+          "links": [
+            240
+          ]
+        },
+        {
+          "name": "preview",
+          "type": "IMAGE",
+          "links": [
+            239
+          ]
+        },
+        {
+          "name": "bboxes",
+          "type": "BOUNDING_BOX",
+          "links": null
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Ideogram4PromptBuilderKJ",
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "3df15ed824045ca45ba668869965a72c7d9d9825",
+        "liveBg": false
+      },
+      "widgets_values": [
+        1088,
+        1928,
+        "A vertical 9:16 fantasy ancient Chinese portrait of a beautiful noble woman with pale porcelain skin, black voluminous hair, an ornate golden floral crown, colorful gemstone hair ornaments, dangling tassels, and a luxurious feathered costume. The scene is dark, smoky, glamorous, and dreamlike, filled with glowing feathers, golden particles, and cinematic fantasy lighting.",
+        "A dark fantasy background filled with blue-gray smoke, soft black shadows, tiny glowing golden particles, white sparkles, and subtle mist. The atmosphere feels mysterious, cinematic, and magical, like a night palace or celestial dream world.",
+        "photo",
+        "vertical cinematic portrait, shallow depth of field, soft focus, high-detail beauty photography, close-up fashion editorial composition",
+        "ethereal, luxurious, mysterious, ancient Chinese fantasy, glamorous, dark romantic, celestial, elegant, delicate, high-fashion fantasy portrait",
+        "dramatic low-key lighting, warm golden highlights, cool blue-gray smoke, glowing feather reflections, soft rim light, sparkling particles, cinematic beauty lighting",
+        "photograph",
+        "[\"#050608\",\"#0D1117\",\"#1E2C2B\",\"#F8F1E0\",\"#D8A84F\",\"#FFD98A\",\"#0B6B6F\",\"#1F8A7A\",\"#B9232F\",\"#26456B\",\"#FFFFFF\",\"#C8B8A0\"]",
+        "[{\"type\":\"obj\",\"text\":\"\",\"desc\":\"A beautiful ancient Chinese noble woman in a vertical close portrait. She has pale porcelain skin, delicate facial features, soft pink-purple eye makeup, long eyelashes, sharp yet elegant eyes looking slightly toward the viewer, glossy deep red lips, and a calm seductive expression.\",\"palette\":[],\"x\":0.13,\"y\":0.065,\"w\":0.54,\"h\":0.455},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"Large voluminous black hair styled in an elaborate ancient updo, glossy and sculptural, with loose strands framing the face and flowing behind the shoulders.\",\"palette\":[],\"x\":0.12,\"y\":0,\"w\":0.6,\"h\":0.36},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"An ornate golden floral crown and hairpiece covering the top of her hair, made of delicate gold branches, flowers, loops, pearls, hanging chains, and colorful gemstones in red, turquoise, blue, and amber.\",\"palette\":[],\"x\":0.18,\"y\":0,\"w\":0.555,\"h\":0.22},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"Long dangling hair ornaments and earrings made of gold chains, pearl beads, star-shaped pendants, tassels, and tiny gemstone drops, hanging beside her face and catching warm light.\",\"palette\":[],\"x\":0.15,\"y\":0.09,\"w\":0.71,\"h\":0.3},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"A luxurious feathered costume surrounding the lower body and foreground, made of black, teal, dark green, blue, red, golden, and white feathers, layered densely with sparkling beads, fine chains, metallic decorations, and glowing highlights.\",\"palette\":[],\"x\":0.04,\"y\":0.28,\"w\":0.96,\"h\":0.72},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"The woman's bare shoulder and upper back visible above the feathered garment, softly lit with pearlescent highlights, emphasizing elegant posture and graceful body line.\",\"palette\":[],\"x\":0.16,\"y\":0.3,\"w\":0.6,\"h\":0.46},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"One delicate hand raised near the face, with slender fingers posed elegantly, partially lit by warm golden light and surrounded by drifting smoke.\",\"palette\":[],\"x\":0.16,\"y\":0.33,\"w\":0.23,\"h\":0.14},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"Dense foreground feathers and ornaments in dark teal, black, white, gold, red, and blue, some sharply detailed and some blurred by depth of field, creating rich texture and depth.\",\"palette\":[],\"x\":0,\"y\":0.5,\"w\":1,\"h\":0.5},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"Scattered glowing particles, star-like light specks, golden dust, tiny white flares, and soft bokeh highlights floating across the entire image.\",\"palette\":[],\"x\":0,\"y\":0.12,\"w\":1,\"h\":0.88},{\"type\":\"obj\",\"text\":\"\",\"desc\":\"Soft smoky mist and dark atmospheric shadows behind the woman, creating contrast with the warm gold crown, pale skin, and glowing feather decorations.\",\"palette\":[],\"x\":0,\"y\":0,\"w\":1,\"h\":0.42}]",
+        0,
+        "always",
+        ""
+      ]
+    },
+    {
+      "id": 98,
+      "type": "83e6e004-48ea-408e-9024-eb49c3d7dc14",
+      "pos": [
+        5875.224028097158,
+        477.37249270603314
+      ],
+      "size": [
+        440,
+        690
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "prompt",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": 240
+        },
+        {
+          "label": "width",
+          "name": "value",
+          "type": "INT",
+          "widget": {
+            "name": "value"
+          },
+          "link": 233
+        },
+        {
+          "label": "height",
+          "name": "value_1",
+          "type": "INT",
+          "widget": {
+            "name": "value_1"
+          },
+          "link": 234
+        },
+        {
+          "label": "unconditional_unet",
+          "name": "unet_name_1",
+          "type": "COMBO",
+          "widget": {
+            "name": "unet_name_1"
+          },
+          "link": null
+        },
+        {
+          "label": "mode",
+          "name": "choice",
+          "type": "COMBO",
+          "widget": {
+            "name": "choice"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            228
+          ]
+        }
+      ],
+      "properties": {
+        "proxyWidgets": [
+          [
+            "24",
+            "text"
+          ],
+          [
+            "27",
+            "value"
+          ],
+          [
+            "28",
+            "value"
+          ],
+          [
+            "18",
+            "noise_seed"
+          ],
+          [
+            "23",
+            "unet_name"
+          ],
+          [
+            "14",
+            "clip_name"
+          ],
+          [
+            "9",
+            "vae_name"
+          ],
+          [
+            "154",
+            "unet_name"
+          ],
+          [
+            "156",
+            "choice"
+          ]
+        ],
+        "cnr_id": "comfy-core",
+        "ver": "0.23.0",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 37,
+      "type": "ResolutionSelector",
+      "pos": [
+        5272.749633529103,
+        1341.2598743721228
+      ],
+      "size": [
+        293.3714331402298,
+        126
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            233,
+            235,
+            243
+          ]
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            234,
+            236,
+            244
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ResolutionSelector",
+        "cnr_id": "comfy-core",
+        "ver": "0.23.0",
+        "enableTabs": false,
+        "tabWidth": 65,
+        "tabXOffset": 10,
+        "hasSecondTab": false,
+        "secondTabText": "Send Back",
+        "secondTabOffset": 80,
+        "secondTabWidth": 65
+      },
+      "widgets_values": [
+        "16:9 (Widescreen)",
+        2,
+        8
+      ]
+    },
+    {
+      "id": 163,
+      "type": "PreviewImage",
+      "pos": [
+        6436.162777331951,
+        370.4253866513043
+      ],
+      "size": [
+        798.3084854150038,
+        1383.2988514934482
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 228
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 171,
+      "type": "StringConstantMultiline",
+      "pos": [
+        4448.761203044837,
+        -37.1696067600413
+      ],
+      "size": [
+        735.2068088738861,
+        1620.0313826785105
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            238
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "StringConstantMultiline",
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "3df15ed824045ca45ba668869965a72c7d9d9825"
+      },
+      "widgets_values": [
+        "{\n  \"high_level_description\": \"A single seamless panoramic 3×3 contact sheet showing the same classic European living room from nine synchronized viewpoints. The grid represents a complete spatial survey where each cell is a different camera position around the room while all furniture, architecture, lighting, perspective, object placement, and orientation remain perfectly consistent across every panel.\",\n  \"style_description\": {\n    \"aesthetics\": \"classic European interior, French and English traditional style, warm nostalgic atmosphere, cohesive panoramic composition, subtle cinematic film texture, architectural visualization quality, perfectly matched exposure across all nine panels\",\n    \"lighting\": \"soft natural daylight entering from the east floor-to-ceiling window, gentle warm ambient bounce light, consistent illumination and shadows in every panel\",\n    \"photo\": \"architectural interior photography, ultra sharp, 24mm wide-angle lens, eye-level views except true orthographic top-down center panel, high dynamic range, realistic materials\",\n    \"medium\": \"photograph\",\n    \"color_palette\": [\n      \"#F2EEE7\",\n      \"#DDD3C2\",\n      \"#8A5A3B\",\n      \"#5B3A29\",\n      \"#C8A36A\",\n      \"#A52A2A\",\n      \"#F5F2E8\",\n      \"#B08D57\",\n      \"#6E4B2A\",\n      \"#355E3B\",\n      \"#ECE4D8\",\n      \"#8E8E82\"\n    ]\n  },\n  \"compositional_deconstruction\": {\n    \"background\": \"A perfectly aligned seamless 3×3 panoramic contact sheet separated only by thin subtle light-gray grid lines. Every panel belongs to the same European living room with identical brightness, contrast, color grading, lens characteristics and perspective continuity. Global layout never changes: center deep brown leather three-seat sofa faces south; rectangular oak coffee table with white ceramic vase and hardcover books; north wall contains a white fireplace facing south with a gold-framed landscape painting above and symmetrical built-in bookshelves filled with books and candlesticks; east wall has a large floor-to-ceiling window with beige linen curtains overlooking a lush green garden; west wall has a grandfather clock and a tall fiddle-leaf fig; south wall has a decorative sideboard facing north beneath a round mirror with a brass table lamp and ornaments; pale plaster ceiling with crown molding and crystal chandelier; dark herringbone wood floor with beige-gray wool rug beneath sofa and table.\",\n    \"elements\": [\n      {\n        \"type\": \"obj\",\n        \"bbox\": [0, 0, 333, 333],\n        \"desc\": \"Northwest viewpoint. Standing eye level with a slight downward viewing angle looking southeast. Visible are the left built-in bookshelf on the north wall, the upper portion and west side of the white fireplace, the full front of the grandfather clock, the upper canopy of the fiddle-leaf fig on the west wall, the west armrest of the central dark brown leather sofa, the west half of the oak coffee table with the white ceramic vase and hardcover books, diagonal herringbone floor texture, all objects aligned with the fixed room layout.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [0, 333, 333, 667],\n        \"desc\": \"North viewpoint. Eye-level view directly facing the north wall. The fireplace front is centered with the gold-framed landscape painting above and symmetrical bookshelves on both sides. The back of the south-facing leather sofa occupies the foreground center. Only the north edge of the coffee table is visible. The floor-to-ceiling window appears at the far right edge, while the grandfather clock appears at the far left edge. Furniture orientation remains identical to every other panel.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [0, 667, 333, 1000],\n        \"desc\": \"Northeast viewpoint. Standing eye level with a slight downward angle looking southwest. Visible are the right built-in bookshelf, the upper portion and east side of the fireplace, the floor-to-ceiling window with beige linen curtains and green garden outside, the east armrest of the leather sofa, the east half of the oak coffee table including the vase and books, diagonal herringbone floor pattern, perfectly matching neighboring viewpoints.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [333, 0, 667, 333],\n        \"desc\": \"West viewpoint. Eye-level view directly facing the west wall. The grandfather clock is fully visible from the front beside the entire fiddle-leaf fig. The west side of the leather sofa and west side of the coffee table occupy the middle ground. The west side of the fireplace and west side of the decorative sideboard are visible. The east floor-to-ceiling window appears in the distant right background. All architectural positions remain fixed.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [333, 333, 667, 667],\n        \"desc\": \"True orthographic top-down view. The entire room is viewed vertically from above with no perspective distortion. Visible are the sofa footprint facing south, the rectangular coffee table with the top-down shapes of the white ceramic vase and hardcover books, the beige-gray rug, the top of the grandfather clock, the canopy of the fiddle-leaf fig, the fireplace top, decorative sideboard top, crystal chandelier centered on the ceiling, bookshelf footprints, window sill and curtain positions, continuous dark herringbone wood flooring, and perfectly coherent spatial relationships among every object.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [333, 667, 667, 1000],\n        \"desc\": \"East viewpoint. Eye-level view directly facing the east wall. The floor-to-ceiling window fills the view with beige curtains and lush green garden outside. The east side of the leather sofa and east side of the coffee table occupy the center. The east side of the fireplace and east side of the decorative sideboard are visible. The grandfather clock appears in the distant left background. Object positions exactly match the global layout.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [667, 0, 1000, 333],\n        \"desc\": \"Southwest viewpoint. Standing eye level with a slight downward viewing angle looking northeast. The decorative sideboard front beneath the round mirror is prominent together with the brass table lamp and ornaments. Visible are the southwest front corner of the leather sofa, the southwest front corner of the coffee table with the vase and books, diagonal herringbone flooring, while the fireplace and floor-to-ceiling window appear in the distant upper-right background. Continuity with adjacent viewpoints is seamless.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [667, 333, 1000, 667],\n        \"desc\": \"South viewpoint. Eye-level view directly facing the south wall. The decorative sideboard is centered beneath the round mirror with the brass table lamp and decorative objects. The front cushions and armrests of the leather sofa dominate the foreground, with the south edge of the coffee table nearest the viewer. The fireplace is centered in the distant background on the north wall, the floor-to-ceiling window appears on the background right, and the grandfather clock appears on the background left. Furniture orientation is completely consistent.\"\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [667, 667, 1000, 1000],\n        \"desc\": \"Southeast viewpoint. Standing eye level with a slight downward viewing angle looking northwest. The right portion of the decorative sideboard and brass table lamp are visible. The southeast front corner of the leather sofa and southeast front corner of the coffee table are nearest the viewer. The floor-to-ceiling window and beige curtains occupy the immediate right side. The fireplace appears in the distant upper-left background. Diagonal herringbone floor texture remains perfectly continuous and all object orientations exactly match every neighboring panel.\"\n      }\n    ]\n  }\n}",
+        true
+      ]
+    },
+    {
+      "id": 167,
+      "type": "easy showAnything",
+      "pos": [
+        5589.860311765688,
+        1357.5972758392372
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 235
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "cnr_id": "comfyui-easy-use",
+        "ver": "5618a748c14858a6e95a583baa28bb7c8da7976a"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 168,
+      "type": "easy showAnything",
+      "pos": [
+        5820.003965669092,
+        1357.9330208017682
+      ],
+      "size": [
+        210,
+        88
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 236
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "cnr_id": "comfyui-easy-use",
+        "ver": "5618a748c14858a6e95a583baa28bb7c8da7976a"
+      },
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [
+      228,
+      98,
+      0,
+      163,
+      0,
+      "IMAGE"
+    ],
+    [
+      233,
+      37,
+      0,
+      98,
+      1,
+      "INT"
+    ],
+    [
+      234,
+      37,
+      1,
+      98,
+      2,
+      "INT"
+    ],
+    [
+      235,
+      37,
+      0,
+      167,
+      0,
+      "INT"
+    ],
+    [
+      236,
+      37,
+      1,
+      168,
+      0,
+      "INT"
+    ],
+    [
+      238,
+      171,
+      0,
+      169,
+      1,
+      "STRING"
+    ],
+    [
+      239,
+      169,
+      1,
+      172,
+      0,
+      "IMAGE"
+    ],
+    [
+      240,
+      169,
+      0,
+      98,
+      0,
+      "STRING"
+    ],
+    [
+      243,
+      37,
+      0,
+      169,
+      3,
+      "INT"
+    ],
+    [
+      244,
+      37,
+      1,
+      169,
+      4,
+      "INT"
+    ]
+  ],
+  "groups": [],
+  "definitions": {
+    "subgraphs": [
+      {
+        "id": "83e6e004-48ea-408e-9024-eb49c3d7dc14",
+        "version": 1,
+        "state": {
+          "lastGroupId": 9,
+          "lastNodeId": 177,
+          "lastLinkId": 244,
+          "lastRerouteId": 0
+        },
+        "revision": 0,
+        "config": {},
+        "name": "Text to Image (Ideogram v4)",
+        "inputNode": {
+          "id": -10,
+          "bounding": [
+            3490,
+            920,
+            154.921875,
+            228
+          ]
+        },
+        "outputNode": {
+          "id": -20,
+          "bounding": [
+            6850,
+            936,
+            128,
+            68
+          ]
+        },
+        "inputs": [
+          {
+            "id": "4bc742d1-7b4b-452c-90d9-0d76ebcdae76",
+            "name": "text",
+            "type": "STRING",
+            "linkIds": [
+              152
+            ],
+            "label": "prompt",
+            "pos": [
+              3620.921875,
+              944
+            ]
+          },
+          {
+            "id": "8d4038eb-73c7-45e9-bba1-f068f55e8d32",
+            "name": "value",
+            "type": "INT",
+            "linkIds": [
+              153
+            ],
+            "label": "width",
+            "pos": [
+              3620.921875,
+              964
+            ]
+          },
+          {
+            "id": "281550e6-6acf-4cbe-aec1-9eb803b4dec1",
+            "name": "value_1",
+            "type": "INT",
+            "linkIds": [
+              154
+            ],
+            "label": "height",
+            "pos": [
+              3620.921875,
+              984
+            ]
+          },
+          {
+            "id": "fae56884-2f1a-470b-a25f-40e7a87ef69d",
+            "name": "noise_seed",
+            "type": "INT",
+            "linkIds": [
+              155
+            ],
+            "pos": [
+              3620.921875,
+              1004
+            ]
+          },
+          {
+            "id": "3497309c-a7d7-4e28-9330-142c15881632",
+            "name": "unet_name",
+            "type": "COMBO",
+            "linkIds": [
+              156
+            ],
+            "pos": [
+              3620.921875,
+              1024
+            ]
+          },
+          {
+            "id": "e87126db-7147-465e-b129-370ed2c6cc22",
+            "name": "clip_name",
+            "type": "COMBO",
+            "linkIds": [
+              157
+            ],
+            "pos": [
+              3620.921875,
+              1044
+            ]
+          },
+          {
+            "id": "a1e6c080-b11b-4d5c-a3a8-fcf4df654cf7",
+            "name": "vae_name",
+            "type": "COMBO",
+            "linkIds": [
+              158
+            ],
+            "pos": [
+              3620.921875,
+              1064
+            ]
+          },
+          {
+            "id": "b0d16516-95de-44d9-bea8-3cd2e7c78e9a",
+            "name": "unet_name_1",
+            "type": "COMBO",
+            "linkIds": [
+              216
+            ],
+            "label": "unconditional_unet",
+            "pos": [
+              3620.921875,
+              1084
+            ]
+          },
+          {
+            "id": "249fd825-e6b3-489d-a341-6d8050500f5e",
+            "name": "choice",
+            "type": "COMBO",
+            "linkIds": [
+              219
+            ],
+            "label": "mode",
+            "pos": [
+              3620.921875,
+              1104
+            ]
+          }
+        ],
+        "outputs": [
+          {
+            "id": "b81e4f60-e543-4f02-875b-b0f1bdc274f2",
+            "name": "IMAGE",
+            "type": "IMAGE",
+            "linkIds": [
+              25
+            ],
+            "localized_name": "IMAGE",
+            "pos": [
+              6874,
+              960
+            ]
+          }
+        ],
+        "widgets": [],
+        "nodes": [
+          {
+            "id": 11,
+            "type": "EmptyFlux2LatentImage",
+            "pos": [
+              5330,
+              1180
+            ],
+            "size": [
+              270,
+              170
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 33
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 36
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Latent",
+                "name": "LATENT",
+                "type": "LATENT",
+                "links": [
+                  15
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "EmptyFlux2LatentImage",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              1024,
+              1024,
+              1
+            ]
+          },
+          {
+            "id": 12,
+            "type": "SamplerCustomAdvanced",
+            "pos": [
+              6160,
+              500
+            ],
+            "size": [
+              290,
+              326
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "噪波",
+                "name": "noise",
+                "type": "NOISE",
+                "link": 11
+              },
+              {
+                "localized_name": "引导器",
+                "name": "guider",
+                "type": "GUIDER",
+                "link": 215
+              },
+              {
+                "localized_name": "采样器",
+                "name": "sampler",
+                "type": "SAMPLER",
+                "link": 13
+              },
+              {
+                "localized_name": "西格玛",
+                "name": "sigmas",
+                "type": "SIGMAS",
+                "link": 14
+              },
+              {
+                "localized_name": "Latent图像",
+                "name": "latent_image",
+                "type": "LATENT",
+                "link": 15
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Latent",
+                "name": "output",
+                "type": "LATENT",
+                "links": [
+                  16
+                ]
+              },
+              {
+                "localized_name": "降噪Latent",
+                "name": "denoised_output",
+                "type": "LATENT",
+                "links": []
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "SamplerCustomAdvanced",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 13,
+            "type": "VAEDecode",
+            "pos": [
+              6560,
+              500
+            ],
+            "size": [
+              230,
+              100
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "Latent",
+                "name": "samples",
+                "type": "LATENT",
+                "link": 16
+              },
+              {
+                "localized_name": "vae",
+                "name": "vae",
+                "type": "VAE",
+                "link": 17
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "图像",
+                "name": "IMAGE",
+                "type": "IMAGE",
+                "slot_index": 0,
+                "links": [
+                  25
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAEDecode",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 17,
+            "type": "Ideogram4Scheduler",
+            "pos": [
+              5790,
+              1260
+            ],
+            "size": [
+              270,
+              240
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "steps",
+                "name": "steps",
+                "type": "INT",
+                "widget": {
+                  "name": "steps"
+                },
+                "link": 207
+              },
+              {
+                "localized_name": "width",
+                "name": "width",
+                "type": "INT",
+                "widget": {
+                  "name": "width"
+                },
+                "link": 34
+              },
+              {
+                "localized_name": "height",
+                "name": "height",
+                "type": "INT",
+                "widget": {
+                  "name": "height"
+                },
+                "link": 37
+              },
+              {
+                "localized_name": "mu",
+                "name": "mu",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "mu"
+                },
+                "link": 208
+              },
+              {
+                "localized_name": "std",
+                "name": "std",
+                "type": "FLOAT",
+                "widget": {
+                  "name": "std"
+                },
+                "link": 209
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "Sigmas",
+                "name": "SIGMAS",
+                "type": "SIGMAS",
+                "links": [
+                  14
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "Ideogram4Scheduler",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              20,
+              1024,
+              1024,
+              0.5,
+              1.75
+            ]
+          },
+          {
+            "id": 24,
+            "type": "CLIPTextEncode",
+            "pos": [
+              5270,
+              500
+            ],
+            "size": [
+              430,
+              420
+            ],
+            "flags": {},
+            "order": 10,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "clip",
+                "name": "clip",
+                "type": "CLIP",
+                "link": 24
+              },
+              {
+                "localized_name": "文本",
+                "name": "text",
+                "type": "STRING",
+                "widget": {
+                  "name": "text"
+                },
+                "link": 152
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "条件",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "slot_index": 0,
+                "links": [
+                  8,
+                  213
+                ]
+              }
+            ],
+            "title": "CLIP Text Encode (Positive Prompt)",
+            "properties": {
+              "Node name for S&R": "CLIPTextEncode",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "{\n  \"high_level_description\": \"A cute promotional e-commerce poster for a Double 11 pre-sale campaign, featuring fluffy pink Chinese typography, a smiling fuzzy handbag character, a blue fuzzy megaphone, gift boxes, and discount mini bags. The poster has a playful toy-like 3D commercial style with soft fur textures, bright pink and orange accents, and clear shopping discount information.\",\n  \"style_description\": {\n    \"aesthetics\": \"cute commercial poster, plush toy aesthetic, soft fluffy texture, Double 11 shopping campaign, cheerful, playful, kawaii, bright and promotional\",\n    \"lighting\": \"soft studio lighting, bright commercial illumination, gentle shadows, glossy highlights on eyes and accessories, even lighting for clean poster readability\",\n    \"medium\": \"graphic_design\",\n    \"art_style\": \"3D plush illustration poster, fuzzy texture rendering, cute mascot product campaign, toy-like commercial visual, soft rounded shapes, high-saturation e-commerce design\",\n    \"color_palette\": [\"#F9D9E6\", \"#F58DB7\", \"#F7A7C7\", \"#FF7B1A\", \"#6CCBFF\", \"#FCEAF1\", \"#FFFFFF\", \"#2A2A2A\", \"#FFD945\"]\n  },\n  \"compositional_deconstruction\": {\n    \"background\": \"A soft pastel pink vertical poster background with subtle circular candy-like shapes and soft floating decorative dots. The entire composition feels fluffy, warm, and festive, with a gentle toy-store atmosphere suitable for an online shopping event poster.\",\n    \"elements\": [\n      {\n        \"type\": \"text\",\n        \"bbox\": [25, 50, 170, 760],\n        \"text\": \"11.11提前购\",\n        \"desc\": \"Large fluffy pink Chinese headline across the top, using thick rounded lettering with a fuzzy plush texture. The text should feel soft, tactile, and celebratory, like cotton candy or faux fur.\",\n        \"color_palette\": [\"#F58DB7\", \"#F7A7C7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [150, 40, 300, 790],\n        \"text\": \"放肆嗨购\",\n        \"desc\": \"Even larger fluffy pink Chinese headline directly below the first line, dominating the top area. The typography is bold, plush, soft-edged, and visually exciting, forming the main Double 11 slogan.\",\n        \"color_palette\": [\"#F58DB7\", \"#F7A7C7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [35, 720, 110, 970],\n        \"desc\": \"A small rounded pink badge in the upper-right corner containing two stacked white pill labels, acting as a limited-edition or surprise benefits tag.\",\n        \"color_palette\": [\"#F58DB7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [45, 745, 70, 955],\n        \"text\": \"福袋限量发放\",\n        \"desc\": \"Small white Chinese text inside the top pill-shaped label, clean and compact.\",\n        \"color_palette\": [\"#FFFFFF\", \"#F58DB7\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [72, 765, 100, 945],\n        \"text\": \"福利惊喜\",\n        \"desc\": \"Small pink Chinese text inside the lower white pill label, centered and cheerful.\",\n        \"color_palette\": [\"#F58DB7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [180, 40, 265, 430],\n        \"desc\": \"A bright yellow rounded speech-label shape with a black smiley face icon on the left, used as a promo tag.\",\n        \"color_palette\": [\"#FFD945\", \"#2A2A2A\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [195, 115, 245, 400],\n        \"text\": \"福利大放送\",\n        \"desc\": \"Bold black Chinese text centered inside the yellow promo label, highly readable and energetic.\",\n        \"color_palette\": [\"#2A2A2A\", \"#FFD945\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [180, 470, 285, 910],\n        \"text\": \"满额惠享\",\n        \"desc\": \"Large bold dark pink Chinese text on the right side of the yellow label, using clean heavy sans-serif typography to announce full-spend promotions.\",\n        \"color_palette\": [\"#E6397E\", \"#F58DB7\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [300, 70, 700, 930],\n        \"desc\": \"A large rounded orange rectangular panel in the middle of the poster serving as the main product showcase area. The panel contrasts strongly with the pink background and frames the plush mascot objects.\",\n        \"color_palette\": [\"#FF7B1A\", \"#FFA24A\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [330, 90, 390, 520],\n        \"text\": \"DOUBLE 11\",\n        \"desc\": \"Large pale orange or light cream uppercase English text across the top area of the orange panel, clean, bold, and softly integrated into the panel.\",\n        \"color_palette\": [\"#FFD8B8\", \"#FFF0E0\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [410, 170, 770, 620],\n        \"desc\": \"A large cute pink fuzzy handbag character centered slightly left within the orange panel. The bag has plush fur texture, two white fluffy handles with blue eyelets, oversized cartoon eyes, pink cheeks, and a smiling open mouth. The character feels like a toy mascot and is the primary visual focus.\",\n        \"color_palette\": [\"#F7A7C7\", \"#FCEAF1\", \"#FFFFFF\", \"#2A2A2A\", \"#6CCBFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [350, 620, 720, 980],\n        \"desc\": \"A large blue fuzzy megaphone on the right side of the orange panel, angled toward the center. It has plush texture and a pink spherical detail inside the horn opening, reinforcing the promotional announcement theme.\",\n        \"color_palette\": [\"#6CCBFF\", \"#9ADFFF\", \"#F58DB7\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [620, 20, 780, 220],\n        \"desc\": \"A pastel gift box in the lower-left area of the orange panel, decorated with fluffy pink trim and a large blue ribbon bow, sitting on the plush ground surface.\",\n        \"color_palette\": [\"#DDF0FF\", \"#6CCBFF\", \"#F7A7C7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [580, 560, 770, 700],\n        \"desc\": \"A small pink fuzzy mini handbag with a white percent sign printed on it, placed near the lower middle-right. It acts as a discount icon prop.\",\n        \"color_palette\": [\"#F58DB7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [560, 710, 770, 870],\n        \"desc\": \"A small blue fuzzy mini handbag with a white percent sign, placed beside the pink mini bag. It mirrors the sale theme and balances the scene.\",\n        \"color_palette\": [\"#6CCBFF\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [700, 0, 1000, 1000],\n        \"desc\": \"A soft fluffy pink ground surface occupies the lower portion of the poster, like a plush carpet, supporting the promo objects and giving the entire poster a tactile cozy feeling.\",\n        \"color_palette\": [\"#F7A7C7\", \"#FCEAF1\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [740, 30, 860, 970],\n        \"desc\": \"A large rounded pink information banner with plush texture placed above the bottom price panel. It contains the main flash-sale slogan in big white text, with small decorative white dots at both ends.\",\n        \"color_palette\": [\"#F58DB7\", \"#F7A7C7\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [770, 110, 840, 900],\n        \"text\": \"限时秒杀 疯狂嗨购\",\n        \"desc\": \"Large bold white Chinese text centered inside the plush pink information banner, clearly announcing the limited-time sale.\",\n        \"color_palette\": [\"#FFFFFF\", \"#F58DB7\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [850, 30, 955, 970],\n        \"desc\": \"A white rounded rectangular price and discount information panel spanning the lower part of the poster. It is divided into three vertical columns with subtle separators and contains the core promotional offers.\",\n        \"color_palette\": [\"#FFFFFF\", \"#F7F7F7\", \"#F58DB7\", \"#2A2A2A\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [875, 60, 950, 320],\n        \"text\": \"消费满200元\\n减50\",\n        \"desc\": \"Left discount block in the white panel, with smaller pink explanatory text above and very large black and pink numeric emphasis below.\",\n        \"color_palette\": [\"#E6397E\", \"#2A2A2A\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [875, 360, 950, 650],\n        \"text\": \"充200得\\n充200得240\\n（充值卡金额）\",\n        \"desc\": \"Center recharge offer block in the white panel, using mixed black and pink text with the key number 240 emphasized.\",\n        \"color_palette\": [\"#E6397E\", \"#2A2A2A\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [875, 700, 950, 940],\n        \"text\": \"消费满100元\\n减20\",\n        \"desc\": \"Right discount block in the white panel, with a clear numeric emphasis and clean promotional layout.\",\n        \"color_palette\": [\"#E6397E\", \"#2A2A2A\", \"#FFFFFF\"]\n      },\n      {\n        \"type\": \"text\",\n        \"bbox\": [955, 300, 995, 700],\n        \"text\": \"LINN DESIGN\",\n        \"desc\": \"Small black uppercase designer credit centered at the very bottom of the poster, subtle but legible.\",\n        \"color_palette\": [\"#2A2A2A\"]\n      },\n      {\n        \"type\": \"obj\",\n        \"bbox\": [0, 0, 1000, 1000],\n        \"desc\": \"The overall poster should have a polished e-commerce advertising finish with soft plush materials, rounded cute forms, highly readable promotional typography, and a joyful festival sale atmosphere. The visual language should feel toy-like, furry, and highly appealing for a Double 11 shopping campaign.\",\n        \"color_palette\": [\"#F9D9E6\", \"#F58DB7\", \"#FF7B1A\", \"#6CCBFF\", \"#FFFFFF\"]\n      }\n    ]\n  }\n}"
+            ]
+          },
+          {
+            "id": 27,
+            "type": "PrimitiveInt",
+            "pos": [
+              4240,
+              1610
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 11,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 153
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  32
+                ]
+              }
+            ],
+            "title": "Int (Width)",
+            "properties": {
+              "Node name for S&R": "PrimitiveInt",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              1024,
+              "fixed"
+            ]
+          },
+          {
+            "id": 28,
+            "type": "PrimitiveInt",
+            "pos": [
+              4250,
+              1800
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 12,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT",
+                "widget": {
+                  "name": "value"
+                },
+                "link": 154
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  35
+                ]
+              }
+            ],
+            "title": "Int (Height)",
+            "properties": {
+              "Node name for S&R": "PrimitiveInt",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              1024,
+              "fixed"
+            ]
+          },
+          {
+            "id": 31,
+            "type": "ComfyMathExpression",
+            "pos": [
+              5340,
+              1400
+            ],
+            "size": [
+              230,
+              80
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 13,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 32
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  33,
+                  34
+                ]
+              },
+              {
+                "localized_name": "布尔值",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "max(((a + 15) // 16) * 16, 256)"
+            ]
+          },
+          {
+            "id": 32,
+            "type": "ComfyMathExpression",
+            "pos": [
+              5350,
+              1470
+            ],
+            "size": [
+              230,
+              80
+            ],
+            "flags": {
+              "collapsed": true
+            },
+            "order": 14,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "a",
+                "localized_name": "values.a",
+                "name": "values.a",
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": 35
+              },
+              {
+                "label": "b",
+                "localized_name": "values.b",
+                "name": "values.b",
+                "shape": 7,
+                "type": "FLOAT,INT,BOOLEAN",
+                "link": null
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": null
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  36,
+                  37
+                ]
+              },
+              {
+                "localized_name": "布尔值",
+                "name": "BOOL",
+                "type": "BOOLEAN",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfyMathExpression",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "max(((a + 15) // 16) * 16, 256)"
+            ]
+          },
+          {
+            "id": 144,
+            "type": "ComfyNumberConvert",
+            "pos": [
+              5920,
+              1870
+            ],
+            "size": [
+              230,
+              100
+            ],
+            "flags": {},
+            "order": 15,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "value",
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT,FLOAT,STRING,BOOLEAN",
+                "link": 195
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  208
+                ]
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfyNumberConvert",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 145,
+            "type": "JsonExtractString",
+            "pos": [
+              5450,
+              1870
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 16,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "json_string",
+                "name": "json_string",
+                "type": "STRING",
+                "widget": {
+                  "name": "json_string"
+                },
+                "link": 196
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  195
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "JsonExtractString",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "",
+              "mu"
+            ]
+          },
+          {
+            "id": 146,
+            "type": "ComfyNumberConvert",
+            "pos": [
+              5930,
+              2110
+            ],
+            "size": [
+              230,
+              100
+            ],
+            "flags": {},
+            "order": 17,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "value",
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT,FLOAT,STRING,BOOLEAN",
+                "link": 197
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": [
+                  209
+                ]
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfyNumberConvert",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 149,
+            "type": "JsonExtractString",
+            "pos": [
+              5460,
+              1610
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 20,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "json_string",
+                "name": "json_string",
+                "type": "STRING",
+                "widget": {
+                  "name": "json_string"
+                },
+                "link": 200
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  202
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "JsonExtractString",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "",
+              "num_steps"
+            ]
+          },
+          {
+            "id": 150,
+            "type": "JsonExtractString",
+            "pos": [
+              5450,
+              2110
+            ],
+            "size": [
+              400,
+              200
+            ],
+            "flags": {},
+            "order": 21,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "json_string",
+                "name": "json_string",
+                "type": "STRING",
+                "widget": {
+                  "name": "json_string"
+                },
+                "link": 201
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  197
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "JsonExtractString",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "",
+              "std"
+            ]
+          },
+          {
+            "id": 23,
+            "type": "UNETLoader",
+            "pos": [
+              4734.532802458608,
+              500.1825421018979
+            ],
+            "size": [
+              470,
+              170
+            ],
+            "flags": {},
+            "order": 9,
+            "mode": 0,
+            "showAdvanced": true,
+            "inputs": [
+              {
+                "localized_name": "UNet名称",
+                "name": "unet_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "unet_name"
+                },
+                "link": 156
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  222
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "UNETLoader",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "models": [
+                {
+                  "name": "ideogram4_fp8_scaled.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/Ideogram-4/resolve/main/diffusion_models/ideogram4_fp8_scaled.safetensors",
+                  "directory": "diffusion_models"
+                }
+              ]
+            },
+            "widgets_values": [
+              "ideogram4_fp8_scaled.safetensors",
+              "default"
+            ]
+          },
+          {
+            "id": 154,
+            "type": "UNETLoader",
+            "pos": [
+              4726.03650842038,
+              743.9634915796203
+            ],
+            "size": [
+              470,
+              170
+            ],
+            "flags": {},
+            "order": 23,
+            "mode": 0,
+            "showAdvanced": true,
+            "inputs": [
+              {
+                "localized_name": "UNet名称",
+                "name": "unet_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "unet_name"
+                },
+                "link": 216
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  211
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "UNETLoader",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "models": [
+                {
+                  "name": "ideogram4_unconditional_fp8_scaled.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/Ideogram-4/resolve/main/diffusion_models/ideogram4_unconditional_fp8_scaled.safetensors",
+                  "directory": "diffusion_models"
+                }
+              ]
+            },
+            "widgets_values": [
+              "ideogram4_unconditional_fp8_scaled.safetensors",
+              "default"
+            ]
+          },
+          {
+            "id": 14,
+            "type": "CLIPLoader",
+            "pos": [
+              4727.357672280254,
+              992.6423277197468
+            ],
+            "size": [
+              470,
+              170
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "CLIP名称",
+                "name": "clip_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "clip_name"
+                },
+                "link": 157
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "CLIP",
+                "name": "CLIP",
+                "type": "CLIP",
+                "links": [
+                  24
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CLIPLoader",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "models": [
+                {
+                  "name": "qwen3vl_8b_fp8_scaled.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/Qwen3-VL/resolve/main/text_encoders/qwen3vl_8b_fp8_scaled.safetensors",
+                  "directory": "text_encoders"
+                }
+              ]
+            },
+            "widgets_values": [
+              "qwen3vl_8b_fp8_scaled.safetensors",
+              "ideogram4",
+              "default"
+            ]
+          },
+          {
+            "id": 9,
+            "type": "VAELoader",
+            "pos": [
+              4722.073016840761,
+              1229.248147019114
+            ],
+            "size": [
+              470,
+              110
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "vae名称",
+                "name": "vae_name",
+                "type": "COMBO",
+                "widget": {
+                  "name": "vae_name"
+                },
+                "link": 158
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "VAE",
+                "name": "VAE",
+                "type": "VAE",
+                "links": [
+                  17
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "VAELoader",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65,
+              "models": [
+                {
+                  "name": "flux2-vae.safetensors",
+                  "url": "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors",
+                  "directory": "vae"
+                }
+              ]
+            },
+            "widgets_values": [
+              "flux2-vae.safetensors"
+            ]
+          },
+          {
+            "id": 18,
+            "type": "RandomNoise",
+            "pos": [
+              5786.363636363637,
+              481.8181818181819
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 8,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "噪波随机种",
+                "name": "noise_seed",
+                "type": "INT",
+                "widget": {
+                  "name": "noise_seed"
+                },
+                "link": 155
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "噪波",
+                "name": "NOISE",
+                "type": "NOISE",
+                "links": [
+                  11
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "RandomNoise",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              634250215249933,
+              "randomize"
+            ]
+          },
+          {
+            "id": 148,
+            "type": "StringReplace",
+            "pos": [
+              5146.4025511963655,
+              2125.9895369112314
+            ],
+            "size": [
+              230,
+              196
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 19,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "字符串",
+                "name": "string",
+                "type": "STRING",
+                "widget": {
+                  "name": "string"
+                },
+                "link": 231
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  196,
+                  200,
+                  201
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "StringReplace",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "",
+              "'",
+              "\""
+            ]
+          },
+          {
+            "id": 156,
+            "type": "CustomCombo",
+            "pos": [
+              4713.727509241845,
+              1663.937877386102
+            ],
+            "size": [
+              270,
+              280
+            ],
+            "flags": {},
+            "order": 25,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "选择",
+                "name": "choice",
+                "type": "COMBO",
+                "widget": {
+                  "name": "choice"
+                },
+                "link": 219
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  218
+                ]
+              },
+              {
+                "localized_name": "索引",
+                "name": "INDEX",
+                "type": "INT",
+                "links": null
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CustomCombo",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "Quality",
+              0,
+              "Quality",
+              "Default",
+              "Turbo",
+              ""
+            ]
+          },
+          {
+            "id": 157,
+            "type": "CFGOverride",
+            "pos": [
+              5776.611570247937,
+              628.0991735537192
+            ],
+            "size": [
+              260,
+              170
+            ],
+            "flags": {},
+            "order": 26,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 222
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "模型",
+                "name": "MODEL",
+                "type": "MODEL",
+                "links": [
+                  223
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "CFGOverride",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              3,
+              0.9,
+              1
+            ]
+          },
+          {
+            "id": 16,
+            "type": "KSamplerSelect",
+            "pos": [
+              5769.3388429752085,
+              1107.438016528925
+            ],
+            "size": [
+              270,
+              110
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+              {
+                "localized_name": "采样器",
+                "name": "SAMPLER",
+                "type": "SAMPLER",
+                "links": [
+                  13
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "KSamplerSelect",
+              "cnr_id": "comfy-core",
+              "ver": "0.8.2",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "euler"
+            ]
+          },
+          {
+            "id": 151,
+            "type": "ComfyNumberConvert",
+            "pos": [
+              5908.512396694208,
+              1651.9834710743792
+            ],
+            "size": [
+              230,
+              100
+            ],
+            "flags": {},
+            "order": 22,
+            "mode": 0,
+            "inputs": [
+              {
+                "label": "value",
+                "localized_name": "数值",
+                "name": "value",
+                "type": "INT,FLOAT,STRING,BOOLEAN",
+                "link": 202
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "浮点",
+                "name": "FLOAT",
+                "type": "FLOAT",
+                "links": []
+              },
+              {
+                "localized_name": "整数",
+                "name": "INT",
+                "type": "INT",
+                "links": [
+                  207
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ComfyNumberConvert",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 10,
+            "type": "ConditioningZeroOut",
+            "pos": [
+              5440.863016840759,
+              972.6558192993672
+            ],
+            "size": [
+              250,
+              80
+            ],
+            "flags": {
+              "collapsed": false
+            },
+            "order": 2,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "条件",
+                "name": "conditioning",
+                "type": "CONDITIONING",
+                "link": 8
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "条件",
+                "name": "CONDITIONING",
+                "type": "CONDITIONING",
+                "links": [
+                  214
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "ConditioningZeroOut",
+              "cnr_id": "comfy-core",
+              "ver": "0.9.1",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": []
+          },
+          {
+            "id": 147,
+            "type": "JsonExtractString",
+            "pos": [
+              5009.602999840241,
+              1571.4996661136702
+            ],
+            "size": [
+              410,
+              470
+            ],
+            "flags": {},
+            "order": 18,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "key",
+                "name": "key",
+                "type": "STRING",
+                "widget": {
+                  "name": "key"
+                },
+                "link": 218
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "字符串",
+                "name": "STRING",
+                "type": "STRING",
+                "links": [
+                  231
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "JsonExtractString",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              "{\n  \"Quality\": {\n    \"num_steps\": 48,\n    \"mu\": 0.0,\n    \"std\": 1.5,\n    \"preset_id\": \"V4_QUALITY_48\"\n  },\n  \"Default\": {\n    \"num_steps\": 20,\n    \"mu\": 0.0,\n    \"std\": 1.75,\n    \"preset_id\": \"V4_DEFAULT_20\"\n  },\n  \"Turbo\": {\n    \"num_steps\": 12,\n    \"mu\": 0.5,\n    \"std\": 1.75,\n    \"preset_id\": \"V4_TURBO_12\"\n  }\n}",
+              "Quality"
+            ]
+          },
+          {
+            "id": 155,
+            "type": "DualModelGuider",
+            "pos": [
+              5782.607062359109,
+              863.2006010518405
+            ],
+            "size": [
+              270,
+              180
+            ],
+            "flags": {},
+            "order": 24,
+            "mode": 0,
+            "inputs": [
+              {
+                "localized_name": "model",
+                "name": "model",
+                "type": "MODEL",
+                "link": 223
+              },
+              {
+                "localized_name": "positive",
+                "name": "positive",
+                "type": "CONDITIONING",
+                "link": 213
+              },
+              {
+                "localized_name": "model_negative",
+                "name": "model_negative",
+                "shape": 7,
+                "type": "MODEL",
+                "link": 211
+              },
+              {
+                "localized_name": "negative",
+                "name": "negative",
+                "shape": 7,
+                "type": "CONDITIONING",
+                "link": 214
+              }
+            ],
+            "outputs": [
+              {
+                "localized_name": "引导器",
+                "name": "GUIDER",
+                "type": "GUIDER",
+                "links": [
+                  215
+                ]
+              }
+            ],
+            "properties": {
+              "Node name for S&R": "DualModelGuider",
+              "cnr_id": "comfy-core",
+              "ver": "0.23.0",
+              "enableTabs": false,
+              "tabWidth": 65,
+              "tabXOffset": 10,
+              "hasSecondTab": false,
+              "secondTabText": "Send Back",
+              "secondTabOffset": 80,
+              "secondTabWidth": 65
+            },
+            "widgets_values": [
+              4
+            ]
+          }
+        ],
+        "groups": [
+          {
+            "id": 1,
+            "title": "Models",
+            "bounding": [
+              4700,
+              420,
+              530,
+              1100
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 2,
+            "title": "Latent Size",
+            "bounding": [
+              5260,
+              1080,
+              450,
+              440
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 3,
+            "title": "Sampling",
+            "bounding": [
+              5740,
+              420,
+              780,
+              1100
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 4,
+            "title": "Prompt",
+            "bounding": [
+              5260,
+              420,
+              450,
+              640
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 5,
+            "title": "Image Size",
+            "bounding": [
+              4130,
+              1540,
+              530,
+              420
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          },
+          {
+            "id": 9,
+            "title": "Preset",
+            "bounding": [
+              4700,
+              1540,
+              1820,
+              780
+            ],
+            "color": "#3f789e",
+            "flags": {}
+          }
+        ],
+        "links": [
+          {
+            "id": 8,
+            "origin_id": 24,
+            "origin_slot": 0,
+            "target_id": 10,
+            "target_slot": 0,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 33,
+            "origin_id": 31,
+            "origin_slot": 1,
+            "target_id": 11,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 36,
+            "origin_id": 32,
+            "origin_slot": 1,
+            "target_id": 11,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 11,
+            "origin_id": 18,
+            "origin_slot": 0,
+            "target_id": 12,
+            "target_slot": 0,
+            "type": "NOISE"
+          },
+          {
+            "id": 13,
+            "origin_id": 16,
+            "origin_slot": 0,
+            "target_id": 12,
+            "target_slot": 2,
+            "type": "SAMPLER"
+          },
+          {
+            "id": 14,
+            "origin_id": 17,
+            "origin_slot": 0,
+            "target_id": 12,
+            "target_slot": 3,
+            "type": "SIGMAS"
+          },
+          {
+            "id": 15,
+            "origin_id": 11,
+            "origin_slot": 0,
+            "target_id": 12,
+            "target_slot": 4,
+            "type": "LATENT"
+          },
+          {
+            "id": 16,
+            "origin_id": 12,
+            "origin_slot": 0,
+            "target_id": 13,
+            "target_slot": 0,
+            "type": "LATENT"
+          },
+          {
+            "id": 17,
+            "origin_id": 9,
+            "origin_slot": 0,
+            "target_id": 13,
+            "target_slot": 1,
+            "type": "VAE"
+          },
+          {
+            "id": 34,
+            "origin_id": 31,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 1,
+            "type": "INT"
+          },
+          {
+            "id": 37,
+            "origin_id": 32,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 2,
+            "type": "INT"
+          },
+          {
+            "id": 24,
+            "origin_id": 14,
+            "origin_slot": 0,
+            "target_id": 24,
+            "target_slot": 0,
+            "type": "CLIP"
+          },
+          {
+            "id": 32,
+            "origin_id": 27,
+            "origin_slot": 0,
+            "target_id": 31,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 35,
+            "origin_id": 28,
+            "origin_slot": 0,
+            "target_id": 32,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 25,
+            "origin_id": 13,
+            "origin_slot": 0,
+            "target_id": -20,
+            "target_slot": 0,
+            "type": "IMAGE"
+          },
+          {
+            "id": 152,
+            "origin_id": -10,
+            "origin_slot": 0,
+            "target_id": 24,
+            "target_slot": 1,
+            "type": "STRING"
+          },
+          {
+            "id": 153,
+            "origin_id": -10,
+            "origin_slot": 1,
+            "target_id": 27,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 154,
+            "origin_id": -10,
+            "origin_slot": 2,
+            "target_id": 28,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 155,
+            "origin_id": -10,
+            "origin_slot": 3,
+            "target_id": 18,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 156,
+            "origin_id": -10,
+            "origin_slot": 4,
+            "target_id": 23,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 157,
+            "origin_id": -10,
+            "origin_slot": 5,
+            "target_id": 14,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 158,
+            "origin_id": -10,
+            "origin_slot": 6,
+            "target_id": 9,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 195,
+            "origin_id": 145,
+            "origin_slot": 0,
+            "target_id": 144,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 196,
+            "origin_id": 148,
+            "origin_slot": 0,
+            "target_id": 145,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 197,
+            "origin_id": 150,
+            "origin_slot": 0,
+            "target_id": 146,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 200,
+            "origin_id": 148,
+            "origin_slot": 0,
+            "target_id": 149,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 201,
+            "origin_id": 148,
+            "origin_slot": 0,
+            "target_id": 150,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 202,
+            "origin_id": 149,
+            "origin_slot": 0,
+            "target_id": 151,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 207,
+            "origin_id": 151,
+            "origin_slot": 1,
+            "target_id": 17,
+            "target_slot": 0,
+            "type": "INT"
+          },
+          {
+            "id": 208,
+            "origin_id": 144,
+            "origin_slot": 0,
+            "target_id": 17,
+            "target_slot": 3,
+            "type": "FLOAT"
+          },
+          {
+            "id": 209,
+            "origin_id": 146,
+            "origin_slot": 0,
+            "target_id": 17,
+            "target_slot": 4,
+            "type": "FLOAT"
+          },
+          {
+            "id": 211,
+            "origin_id": 154,
+            "origin_slot": 0,
+            "target_id": 155,
+            "target_slot": 2,
+            "type": "MODEL"
+          },
+          {
+            "id": 213,
+            "origin_id": 24,
+            "origin_slot": 0,
+            "target_id": 155,
+            "target_slot": 1,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 214,
+            "origin_id": 10,
+            "origin_slot": 0,
+            "target_id": 155,
+            "target_slot": 3,
+            "type": "CONDITIONING"
+          },
+          {
+            "id": 215,
+            "origin_id": 155,
+            "origin_slot": 0,
+            "target_id": 12,
+            "target_slot": 1,
+            "type": "GUIDER"
+          },
+          {
+            "id": 216,
+            "origin_id": -10,
+            "origin_slot": 7,
+            "target_id": 154,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 218,
+            "origin_id": 156,
+            "origin_slot": 0,
+            "target_id": 147,
+            "target_slot": 0,
+            "type": "STRING"
+          },
+          {
+            "id": 219,
+            "origin_id": -10,
+            "origin_slot": 8,
+            "target_id": 156,
+            "target_slot": 0,
+            "type": "COMBO"
+          },
+          {
+            "id": 222,
+            "origin_id": 23,
+            "origin_slot": 0,
+            "target_id": 157,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 223,
+            "origin_id": 157,
+            "origin_slot": 0,
+            "target_id": 155,
+            "target_slot": 0,
+            "type": "MODEL"
+          },
+          {
+            "id": 231,
+            "origin_id": 147,
+            "origin_slot": 0,
+            "target_id": 148,
+            "target_slot": 0,
+            "type": "STRING"
+          }
+        ],
+        "extra": {}
+      }
+    ]
+  },
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.45.20",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ds": {
+      "scale": 1.228459735736753,
+      "offset": [
+        -5738.7341950148775,
+        -672.0715363904363
+      ]
+    }
+  },
+  "version": 0.4
+}

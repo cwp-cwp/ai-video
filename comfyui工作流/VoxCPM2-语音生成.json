@@ -1,0 +1,339 @@
+{
+  "id": "9aa62dc6-01f8-4154-9cff-af255efcff85",
+  "revision": 0,
+  "last_node_id": 3,
+  "last_link_id": 2,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "RunningHub_VoxCPM_LoadModel",
+      "pos": [
+        -1198.2215966336498,
+        -799.2841327670634
+      ],
+      "size": [
+        313.1402282714844,
+        106
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model_name",
+          "name": "model_name",
+          "type": "COMBO",
+          "widget": {
+            "name": "model_name"
+          },
+          "link": null
+        },
+        {
+          "label": "optimize",
+          "name": "optimize",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "optimize"
+          },
+          "link": null
+        },
+        {
+          "label": "lora_name",
+          "name": "lora_name",
+          "shape": 7,
+          "type": "COMBO",
+          "widget": {
+            "name": "lora_name"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "VOXCPM_MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "HM-RunningHub/ComfyUI_RH_VoxCPM",
+        "ver": "f290007d6ad86407232dd4046fe7212ebb4b2b0d",
+        "Node name for S&R": "RunningHub_VoxCPM_LoadModel",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "VoxCPM2",
+        false,
+        "None"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "RunningHub_VoxCPM_Generate",
+      "pos": [
+        -836.3523243596824,
+        -798.6610420090748
+      ],
+      "size": [
+        400,
+        432
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "model",
+          "name": "model",
+          "type": "VOXCPM_MODEL",
+          "link": 1
+        },
+        {
+          "label": "reference_audio",
+          "name": "reference_audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "control_instruction",
+          "name": "control_instruction",
+          "type": "STRING",
+          "widget": {
+            "name": "control_instruction"
+          },
+          "link": null
+        },
+        {
+          "label": "text",
+          "name": "text",
+          "type": "STRING",
+          "widget": {
+            "name": "text"
+          },
+          "link": null
+        },
+        {
+          "label": "cfg_value",
+          "name": "cfg_value",
+          "type": "FLOAT",
+          "widget": {
+            "name": "cfg_value"
+          },
+          "link": null
+        },
+        {
+          "label": "inference_steps",
+          "name": "inference_steps",
+          "type": "INT",
+          "widget": {
+            "name": "inference_steps"
+          },
+          "link": null
+        },
+        {
+          "label": "seed",
+          "name": "seed",
+          "type": "INT",
+          "widget": {
+            "name": "seed"
+          },
+          "link": null
+        },
+        {
+          "label": "ultimate_clone",
+          "name": "ultimate_clone",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "ultimate_clone"
+          },
+          "link": null
+        },
+        {
+          "label": "reference_audio_text",
+          "name": "reference_audio_text",
+          "shape": 7,
+          "type": "STRING",
+          "widget": {
+            "name": "reference_audio_text"
+          },
+          "link": null
+        },
+        {
+          "label": "normalize_text",
+          "name": "normalize_text",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "normalize_text"
+          },
+          "link": null
+        },
+        {
+          "label": "denoise_reference",
+          "name": "denoise_reference",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "denoise_reference"
+          },
+          "link": null
+        },
+        {
+          "label": "max_len",
+          "name": "max_len",
+          "shape": 7,
+          "type": "INT",
+          "widget": {
+            "name": "max_len"
+          },
+          "link": null
+        },
+        {
+          "label": "retry_badcase",
+          "name": "retry_badcase",
+          "shape": 7,
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "retry_badcase"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "HM-RunningHub/ComfyUI_RH_VoxCPM",
+        "ver": "f290007d6ad86407232dd4046fe7212ebb4b2b0d",
+        "Node name for S&R": "RunningHub_VoxCPM_Generate",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "女性，温柔软糯，语速慢，含情脉脉，像女儿国国王",
+        "御弟哥哥，你为何不肯留下？",
+        2,
+        10,
+        275980052107501,
+        "randomize",
+        false,
+        "",
+        false,
+        false,
+        4096,
+        true
+      ]
+    },
+    {
+      "id": 3,
+      "type": "SaveAudio",
+      "pos": [
+        -398.2215966336498,
+        -799.2841327670634
+      ],
+      "size": [
+        400,
+        120
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "audio",
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 2
+        },
+        {
+          "label": "filename_prefix",
+          "name": "filename_prefix",
+          "type": "STRING",
+          "widget": {
+            "name": "filename_prefix"
+          },
+          "link": null
+        },
+        {
+          "label": "audioUI",
+          "name": "audioUI",
+          "type": "AUDIO_UI",
+          "widget": {
+            "name": "audioUI"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.12.3",
+        "Node name for S&R": "SaveAudio",
+        "ue_properties": {
+          "version": "7.3",
+          "widget_ue_connectable": {},
+          "input_ue_unconnectable": {}
+        }
+      },
+      "widgets_values": [
+        "audio/ComfyUI"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "VOXCPM_MODEL"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "workflowRendererVersion": "LG",
+    "ue_links": [],
+    "ds": {
+      "scale": 1.2839025177495071,
+      "offset": [
+        1251.4844838811914,
+        1018.3920020166205
+      ]
+    },
+    "frontendVersion": "1.39.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

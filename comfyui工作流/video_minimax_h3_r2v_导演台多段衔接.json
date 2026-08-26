@@ -1,0 +1,2006 @@
+{
+  "id": "91a8ff3e-182c-49b7-a292-448bcd32cc85",
+  "revision": 0,
+  "last_node_id": 70,
+  "last_link_id": 108,
+  "nodes": [
+    {
+      "id": 3,
+      "type": "VAELoader",
+      "pos": [
+        473.3126815332407,
+        -277.8888836605067
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "title": "Video VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_video_vae_fp16.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_video_vae_fp16.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_video_vae_fp16.safetensors"
+      }
+    },
+    {
+      "id": 4,
+      "type": "VAELoader",
+      "pos": [
+        473.3126815332407,
+        -157.8888836605067
+      ],
+      "size": [
+        360,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "title": "Audio VAE",
+      "properties": {
+        "Node name for S&R": "VAELoader",
+        "models": [
+          {
+            "name": "minimax_h3_audio_vae_fp32.safetensors",
+            "directory": "vae"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_audio_vae_fp32.safetensors"
+      ],
+      "widgets_values_named": {
+        "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+      }
+    },
+    {
+      "id": 8,
+      "type": "PreviewAny",
+      "pos": [
+        1200,
+        400
+      ],
+      "size": [
+        640,
+        200
+      ],
+      "flags": {},
+      "order": 30,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "Director 运行报告",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 9,
+      "type": "PreviewAny",
+      "pos": [
+        1200,
+        640
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "fps",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 10,
+      "type": "PreviewAny",
+      "pos": [
+        1440,
+        640
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 29,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source",
+          "type": "*",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "title": "frame_count",
+      "properties": {
+        "Node name for S&R": "PreviewAny"
+      },
+      "widgets_values": [],
+      "widgets_values_named": {}
+    },
+    {
+      "id": 7,
+      "type": "SaveVideo",
+      "pos": [
+        1859.3131529889763,
+        216.73259057747958
+      ],
+      "size": [
+        320,
+        275.77777777777777
+      ],
+      "flags": {},
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SaveVideo"
+      },
+      "widgets_values": [
+        "video/MiniMaxH3_Director_external_r2v",
+        "auto",
+        "auto"
+      ],
+      "widgets_values_named": {
+        "filename_prefix": "video/MiniMaxH3_Director_external_r2v",
+        "format": "auto",
+        "codec": "auto"
+      }
+    },
+    {
+      "id": 2,
+      "type": "CLIPLoader",
+      "pos": [
+        473.3126815332407,
+        -437.88888366050656
+      ],
+      "size": [
+        360,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            2
+          ]
+        }
+      ],
+      "title": "CLIP (minimax / Qwen3-VL)",
+      "properties": {
+        "Node name for S&R": "CLIPLoader",
+        "models": [
+          {
+            "name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+            "directory": "text_encoders"
+          }
+        ]
+      },
+      "widgets_values": [
+        "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "minimax",
+        "default"
+      ],
+      "widgets_values_named": {
+        "clip_name": "qwen3vl_32b_minimax_h3_int8_convrot.safetensors",
+        "type": "minimax",
+        "device": "default"
+      }
+    },
+    {
+      "id": 1,
+      "type": "UNETLoader",
+      "pos": [
+        473.3126815332407,
+        -577.8888836605066
+      ],
+      "size": [
+        360,
+        82
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            40
+          ]
+        }
+      ],
+      "title": "MiniMax H3 UNET (fl2va)",
+      "properties": {
+        "Node name for S&R": "UNETLoader",
+        "models": [
+          {
+            "name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+            "directory": "diffusion_models"
+          }
+        ]
+      },
+      "widgets_values": [
+        "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "default"
+      ],
+      "widgets_values_named": {
+        "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors",
+        "weight_dtype": "default"
+      }
+    },
+    {
+      "id": 19,
+      "type": "LoadImage",
+      "pos": [
+        -1507.0752405676953,
+        -1203.2107198670647
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            67
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "林夕_形象图 (1) (1).png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "林夕_形象图 (1) (1).png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 47,
+      "type": "LoadImage",
+      "pos": [
+        -1907.1815350257525,
+        -754.0400603798444
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            76
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "8ceb0902a5bf4cbfba755f1d0be5d8ae.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "8ceb0902a5bf4cbfba755f1d0be5d8ae.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 48,
+      "type": "LoadImage",
+      "pos": [
+        -1503.2799940576406,
+        -756.5494518148554
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            77
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "77a7881b56ad47d38861261258995eba.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "77a7881b56ad47d38861261258995eba.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 46,
+      "type": "MarkdownNote",
+      "pos": [
+        -2486.1849233060734,
+        624.0714500348738
+      ],
+      "size": [
+        360,
+        320
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "title": "导演台插件地址：",
+      "properties": {},
+      "widgets_values": [
+        "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director"
+      ],
+      "widgets_values_named": {
+        "text": "https://github.com/AIMixer/ComfyUI_MiniMaxH3_Director"
+      },
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 45,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        -1672.8475378764838,
+        1629.886071258212
+      ],
+      "size": [
+        261.6533203125,
+        310
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            74
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": null
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VHS_LoadVideo"
+      },
+      "widgets_values": {
+        "video": "d3ffa21f26fa_00_参考视频_JsoJbGI9Vo_seedance2-1780052267763.mp4",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "d3ffa21f26fa_00_参考视频_JsoJbGI9Vo_seedance2-1780052267763.mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      },
+      "widgets_values_named": {
+        "video": "d3ffa21f26fa_00_参考视频_JsoJbGI9Vo_seedance2-1780052267763.mp4",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": null,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "d3ffa21f26fa_00_参考视频_JsoJbGI9Vo_seedance2-1780052267763.mp4",
+            "type": "input",
+            "format": "video/mp4",
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1
+          }
+        }
+      }
+    },
+    {
+      "id": 42,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1160.2042964714276,
+        1687.9479344851252
+      ],
+      "size": [
+        420.56015625,
+        252
+      ],
+      "flags": {},
+      "order": 20,
+      "mode": 4,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 74
+        },
+        {
+          "label": "ref_video_1",
+          "name": "ref_videos.ref_video_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "- 参考视频，将视频开头出现的易拉罐饮料替换为可口可乐；背景中原本发光的“全家”便利店招牌修改为“互惠”招牌；视频结尾塑料袋中的所有零食也统一替换为可口可乐易拉罐，最后结尾人物的台词从“买了一些小零食”变成了“买了一堆可乐”",
+        15
+      ],
+      "widgets_values_named": {
+        "prompt": "- 参考视频，将视频开头出现的易拉罐饮料替换为可口可乐；背景中原本发光的“全家”便利店招牌修改为“互惠”招牌；视频结尾塑料袋中的所有零食也统一替换为可口可乐易拉罐，最后结尾人物的台词从“买了一些小零食”变成了“买了一堆可乐”",
+        "duration_sec": 15
+      }
+    },
+    {
+      "id": 32,
+      "type": "MiniMaxH3DirectorGroupsCombine",
+      "pos": [
+        -516.7629228129148,
+        313.0937053313516
+      ],
+      "size": [
+        290.7515625,
+        106
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "group_0",
+          "name": "groups.group_0",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 64
+        },
+        {
+          "label": "group_1",
+          "name": "groups.group_1",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 96
+        },
+        {
+          "label": "group_2",
+          "name": "groups.group_2",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 104
+        },
+        {
+          "label": "group_3",
+          "name": "groups.group_3",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "groups",
+          "type": "MMX_DIR_GROUP",
+          "links": [
+            65
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupsCombine"
+      }
+    },
+    {
+      "id": 18,
+      "type": "LoadImage",
+      "pos": [
+        -1915.824539553436,
+        -1202.2952185873455
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "医生_形象图.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "医生_形象图.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 59,
+      "type": "LoadImage",
+      "pos": [
+        -1716.0359088582068,
+        -139.5474333407331
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            98
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "医生_形象图.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "医生_形象图.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 61,
+      "type": "LoadImage",
+      "pos": [
+        -2049.036006409093,
+        282.95430336852104
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            94
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "8ceb0902a5bf4cbfba755f1d0be5d8ae.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "8ceb0902a5bf4cbfba755f1d0be5d8ae.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 62,
+      "type": "LoadImage",
+      "pos": [
+        -1687.432127778642,
+        282.34634050493844
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            95
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "77a7881b56ad47d38861261258995eba.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "77a7881b56ad47d38861261258995eba.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 60,
+      "type": "LoadImage",
+      "pos": [
+        -2029.290642312924,
+        -137.89507013741812
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            97
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "林夕_形象图 (1) (1).png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "林夕_形象图 (1) (1).png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 67,
+      "type": "LoadImage",
+      "pos": [
+        -2024.0376177477438,
+        1147.3518849440127
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            101
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "77a7881b56ad47d38861261258995eba.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "77a7881b56ad47d38861261258995eba.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 66,
+      "type": "LoadImage",
+      "pos": [
+        -2039.5765839727412,
+        732.7260739619242
+      ],
+      "size": [
+        270,
+        314
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            102
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "医生_形象图.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "医生_形象图.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 65,
+      "type": "LoadImage",
+      "pos": [
+        -1709.032334922377,
+        723.8905537263645
+      ],
+      "size": [
+        270,
+        314.0000000000001
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            103
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "林夕_形象图 (1) (1).png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "林夕_形象图 (1) (1).png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 37,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1111.1759903143425,
+        -969.750136507093
+      ],
+      "size": [
+        424.9586544062631,
+        392.7519410004195
+      ],
+      "flags": {},
+      "order": 21,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 66
+        },
+        {
+          "label": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 67
+        },
+        {
+          "label": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 76
+        },
+        {
+          "label": "ref_image_3",
+          "name": "ref_images.ref_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 77
+        },
+        {
+          "label": "ref_image_4",
+          "name": "ref_images.ref_image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": [
+            64
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, short graying hair, and gold-rimmed glasses. He wears a clean white lab coat over a shirt and tie.\n<Subject 2> is the young woman Lin Xi from <Picture 2>, with a slender build, delicate but tired features, a slightly pale complexion, and slightly disheveled long black straight hair. She wears casual dark-colored loose clothing and an old bracelet on her wrist.\n<Subject 3> is the diagnostic report (\"诊断报告\") prop from <Picture 3>, a white paper document with black text detailing Lin Xi's terminal liver cancer diagnosis, visibly crumpled and creased.\n<Subject 4> is the scene environment from <Picture 4>, a compact examination room with a desk, computer, documents, and anatomical charts on the walls, characterized by cold tones, artificial lighting, and a tense, oppressive atmosphere.\n\nsummary:\n[reference generation] The target video is a 12-second animated shot depicting a doctor in a cold-toned examination room delivering a terminal cancer diagnosis to Lin Xi. <Subject 1> delivers the devastating news while handling <Subject 3>, as <Subject 2> listens from an unseen position. The scene uses <Picture 1> and <Picture 2> for character appearance, <Picture 3> for the prop, and <Picture 4> as a soft guide for the environment's mood, color palette, and lighting.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): partially_preserved - the doctor's appearance, glasses, white coat, and build are retained; his orientation and posture are adjusted to match the over-the-shoulder framing.\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's physical features, hair, and clothing style are retained, but she is only partially visible from behind or out of focus in the foreground.\n<Subject 3> (appears in [Shot 1]): fully_preserved - the crumpled diagnostic report is visible on the desk, retaining its appearance and text.\n<Subject 4> (appears in [Shot 1]): weak_reference - the cold color palette, clinical atmosphere, and lighting mood from the reference are retained, but the specific composition and frame detailed by the shot override the reference image.\n\ndetailed_description:\nThe target video uses a 2D-animated Japanese anime style with clean lines, sharp shadows, and a cold blue-tone color palette.\n[Shot 1] A static over-the-shoulder medium shot from Lin Xi's right-rear perspective establishes the compact examination room, with the camera positioned slightly above the doctor's eye level and angled downward by ten degrees. The background is dominated by a window with closed blinds, through which a harsh, cold backlight enters and silhouettes the rigid contour of <Subject 1>. <Subject 1>, the middle-aged doctor with short graying hair and gold-rimmed glasses from <Picture 1>, sits in a swivel chair positioned in the right-center of the frame. He wears a clean white lab coat over a shirt and tie, facing toward the left side of the frame. His posture is stiff, and his gaze is cast downward, avoiding eye contact. In the immediate foreground on the far left of the frame, only a sliver of <Subject 2>'s right shoulder and a few strands of her long, slightly unkempt black hair are visible, out of focus, grounding the perspective. The office itself, softly guided by the atmosphere of <Subject 4>, is sparse and oppressive; an anatomical chart hangs dimly on the wall, and a desk dominates the foreground between the doctor and the patient, with a computer monitor glowing faintly. A desk lamp casts sharp, angular shadows across the surface, upon which <Subject 3>, the crumpled diagnostic report from <Picture 3>, lies. In the tense silence, the muffled sound of a quickening heartbeat begins to rise from the background. <Subject 1> raises his right hand and uses his index finger to push his gold-rimmed glasses up the bridge of his nose, the lens flaring briefly from the window light. He then taps the report on the desk with a stiff, professional indifference. With a flat, emotionally detached voice that carries a clinical numbness, <Subject 1> (S1) says, <d>[Chinese] 林小姐，你的检查结果出来了。肝部肿瘤，已经晚期，估计也就三个月了。治疗没多大意义，回去该吃吃该喝喝吧。</d> As he speaks, he avoids looking toward Lin Xi, his eyes remaining fixed on the report or just to the side of it. Near the end of the line, his hand slides <Subject 3> slightly forward across the desk toward the unseen Lin Xi, the paper's crumpled creases catching the sharp light. Throughout the shot, the oppressive cold blue tone saturates the room, with the edges of the frame fading into deep shadow, emphasizing the suffocating, clinical finality of the moment.\n\noverall_soundscape:\nA tense, sterile silence fills the examination room, featureless save for the faint hum of the computer monitor. The sound of a human heartbeat gradually rises from a low murmur to a loud, pounding rhythm, dominating the soundscape and providing the only emotional counterpoint to the doctor's flat, detached voice.\n\nnon_diegetic_music:\nN/A",
+        12
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, short graying hair, and gold-rimmed glasses. He wears a clean white lab coat over a shirt and tie.\n<Subject 2> is the young woman Lin Xi from <Picture 2>, with a slender build, delicate but tired features, a slightly pale complexion, and slightly disheveled long black straight hair. She wears casual dark-colored loose clothing and an old bracelet on her wrist.\n<Subject 3> is the diagnostic report (\"诊断报告\") prop from <Picture 3>, a white paper document with black text detailing Lin Xi's terminal liver cancer diagnosis, visibly crumpled and creased.\n<Subject 4> is the scene environment from <Picture 4>, a compact examination room with a desk, computer, documents, and anatomical charts on the walls, characterized by cold tones, artificial lighting, and a tense, oppressive atmosphere.\n\nsummary:\n[reference generation] The target video is a 12-second animated shot depicting a doctor in a cold-toned examination room delivering a terminal cancer diagnosis to Lin Xi. <Subject 1> delivers the devastating news while handling <Subject 3>, as <Subject 2> listens from an unseen position. The scene uses <Picture 1> and <Picture 2> for character appearance, <Picture 3> for the prop, and <Picture 4> as a soft guide for the environment's mood, color palette, and lighting.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): partially_preserved - the doctor's appearance, glasses, white coat, and build are retained; his orientation and posture are adjusted to match the over-the-shoulder framing.\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's physical features, hair, and clothing style are retained, but she is only partially visible from behind or out of focus in the foreground.\n<Subject 3> (appears in [Shot 1]): fully_preserved - the crumpled diagnostic report is visible on the desk, retaining its appearance and text.\n<Subject 4> (appears in [Shot 1]): weak_reference - the cold color palette, clinical atmosphere, and lighting mood from the reference are retained, but the specific composition and frame detailed by the shot override the reference image.\n\ndetailed_description:\nThe target video uses a 2D-animated Japanese anime style with clean lines, sharp shadows, and a cold blue-tone color palette.\n[Shot 1] A static over-the-shoulder medium shot from Lin Xi's right-rear perspective establishes the compact examination room, with the camera positioned slightly above the doctor's eye level and angled downward by ten degrees. The background is dominated by a window with closed blinds, through which a harsh, cold backlight enters and silhouettes the rigid contour of <Subject 1>. <Subject 1>, the middle-aged doctor with short graying hair and gold-rimmed glasses from <Picture 1>, sits in a swivel chair positioned in the right-center of the frame. He wears a clean white lab coat over a shirt and tie, facing toward the left side of the frame. His posture is stiff, and his gaze is cast downward, avoiding eye contact. In the immediate foreground on the far left of the frame, only a sliver of <Subject 2>'s right shoulder and a few strands of her long, slightly unkempt black hair are visible, out of focus, grounding the perspective. The office itself, softly guided by the atmosphere of <Subject 4>, is sparse and oppressive; an anatomical chart hangs dimly on the wall, and a desk dominates the foreground between the doctor and the patient, with a computer monitor glowing faintly. A desk lamp casts sharp, angular shadows across the surface, upon which <Subject 3>, the crumpled diagnostic report from <Picture 3>, lies. In the tense silence, the muffled sound of a quickening heartbeat begins to rise from the background. <Subject 1> raises his right hand and uses his index finger to push his gold-rimmed glasses up the bridge of his nose, the lens flaring briefly from the window light. He then taps the report on the desk with a stiff, professional indifference. With a flat, emotionally detached voice that carries a clinical numbness, <Subject 1> (S1) says, <d>[Chinese] 林小姐，你的检查结果出来了。肝部肿瘤，已经晚期，估计也就三个月了。治疗没多大意义，回去该吃吃该喝喝吧。</d> As he speaks, he avoids looking toward Lin Xi, his eyes remaining fixed on the report or just to the side of it. Near the end of the line, his hand slides <Subject 3> slightly forward across the desk toward the unseen Lin Xi, the paper's crumpled creases catching the sharp light. Throughout the shot, the oppressive cold blue tone saturates the room, with the edges of the frame fading into deep shadow, emphasizing the suffocating, clinical finality of the moment.\n\noverall_soundscape:\nA tense, sterile silence fills the examination room, featureless save for the faint hum of the computer monitor. The sound of a human heartbeat gradually rises from a low murmur to a loud, pounding rhythm, dominating the soundscape and providing the only emotional counterpoint to the doctor's flat, detached voice.\n\nnon_diegetic_music:\nN/A",
+        "duration_sec": 12
+      }
+    },
+    {
+      "id": 64,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1196.8108621647339,
+        127.38025613455535
+      ],
+      "size": [
+        454.32639001623295,
+        463.68831168830627
+      ],
+      "flags": {},
+      "order": 22,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 97
+        },
+        {
+          "label": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 98
+        },
+        {
+          "label": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 94
+        },
+        {
+          "label": "ref_image_3",
+          "name": "ref_images.ref_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 95
+        },
+        {
+          "label": "ref_image_4",
+          "name": "ref_images.ref_image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": [
+            96
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the young woman (林夕) from <Picture 1>, with a slender yet stubborn figure, delicate features, and eyes that often show fatigue and determination; her complexion is slightly pale due to illness, with long, slightly disheveled black hair, and she wears dark casual loose clothes with an old bracelet on her wrist.\n<Subject 2> is the middle-aged male doctor from <Picture 2>, of medium build, wearing gold-rimmed glasses, a neat white coat over a shirt and tie, with short graying hair.\n<Subject 3> is the diagnostic report from <Picture 3>, a white paper with black text clearly stating a late-stage liver cancer diagnosis, slightly crumpled from being held too tightly.\n<Subject 4> is the scene environment from <Picture 4>, a compact and oppressive consultation room with a desk, computer, files, and an anatomical chart on the wall, lit by cold artificial light with a tense, cold-toned atmosphere.\n<Picture 1> is a character reference image for <Subject 1>, providing appearance, facial features, hairstyle, and clothing guidance.\n<Picture 2> is a character reference image for <Subject 2>, providing appearance, facial features, hairstyle, and clothing guidance.\n<Picture 3> is a prop reference image providing visual reference for <Subject 3>.\n<Picture 4> is a soft reference for the scene environment, providing style, cold color palette, oppressive lighting, and material texture guidance.\n\nsummary:\n[reference generation] The target video is a 2D Japanese anime style close-up shot from a subjective POV. <Subject 1> holds <Subject 3> in her trembling hands, reading the diagnosis as the harsh light illuminates the paper. <Subject 2> appears blurred in the deep background of the oppressive clinic office. The mood is one of shock and despair, driven by the dialogue of <Subject 1>.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - <Subject 1>'s slender fingers, pale complexion, dark loose sleeves, and old bracelet are clearly visible in the close-up, matching her defined appearance.\n<Subject 2> (appears in [Shot 1]): partially_preserved - <Subject 2>'s white coat, tie, and gold-rimmed glasses are visible, but he remains an out-of-focus figure deep in the background, obscuring fine details.\n<Subject 3> (appears in [Shot 1]): fully_preserved - the diagnostic report's white paper, black text detailing the liver tumor diagnosis, and slightly crumpled texture are clearly shown.\n<Subject 4> (appears in [Shot 1]): weak_reference - the background of the consultation room maintains the cold-toned, oppressive lighting style of the reference, but the composition focuses tightly on the report and the blurred doctor, leaving the full room layout only suggested.\n\ndetailed_description:\nThe target video is presented in a 2D-animated, Japanese anime style with clean line art and a desaturated, cold color palette that emphasizes the clinical atmosphere.\n[Shot 1] The video opens with an extreme close-up subjective POV shot, directly aligning with the eye level of <Subject 1> as she looks down at the document in her hands. The framing is tilted downward at approximately a 60-degree angle, centering entirely on <Subject 3>, the diagnostic report. The harsh, cold white fluorescent light of the clinic shines directly onto the crumpled white paper, making the surface appear almost blindingly bright and sterile against the darkness surrounding it. The black printed characters reading \"肝部肿瘤，晚期\" are sharply in focus, rendered with a crisp, unforgiving clarity that dominates the frame. In the immediate foreground, the slender, pale, trembling hands of <Subject 1> enter from the bottom edges of the frame, gripping the edges of the paper. Her fingertips press tightly into the paper, creating deep creases and causing a very faint, subtle paper rustling sound. The old bracelet on her right wrist is visible, slightly sliding down her arm, while the loose-fitting dark fabric of her sleeve sways subtly from the tremor in her hands. Deep in the shallow depth of field, the background recedes into a blur of oppressive, cold blue-gray tones. The out-of-focus figure of <Subject 2>, the doctor, is seated distantly on the right side of the composition. His white coat and a faint glint from his gold-rimmed glasses are barely distinguishable, but his features dissolve into soft, blurred shapes as he calmly looks down at another file, creating a stark contrast to the acute distress in the foreground. The camera holds a completely static lock-off shot throughout the six-second duration, refusing to provide any visual relief from the text on the paper. The silence of the room is heavy, broken only by the faint sound of the report trembling. <Subject 1>'s pale face is not shown, but her shaken, fragile voice (S1) breaks the silence, speaking from just behind the camera, reverberating with a slight tremor that matches her hands, <d>[Chinese]……三个月？医生，没有别的办法了吗？</d> As she speaks, her fingers twitch slightly, tightening their grip on the paper for a moment as the devastating weight of the text sinks in.\n\noverall_soundscape:\nA dead, oppressive silence dominates the consultation room, underscored by the faint, continuous hum of the harsh fluorescent lighting overhead. The delicate, persistent sound of paper trembling and being gently crinkled by unsteady hands is the only distinct physical action sound.\n\nnon_diegetic_music:\nA single, sustained low-frequency cello note begins softly at the start and slowly increases in tension without resolving, punctuated by a sparse, echoing high piano note that mimics a failing heartbeat, fading out before the video ends.",
+        7
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is the young woman (林夕) from <Picture 1>, with a slender yet stubborn figure, delicate features, and eyes that often show fatigue and determination; her complexion is slightly pale due to illness, with long, slightly disheveled black hair, and she wears dark casual loose clothes with an old bracelet on her wrist.\n<Subject 2> is the middle-aged male doctor from <Picture 2>, of medium build, wearing gold-rimmed glasses, a neat white coat over a shirt and tie, with short graying hair.\n<Subject 3> is the diagnostic report from <Picture 3>, a white paper with black text clearly stating a late-stage liver cancer diagnosis, slightly crumpled from being held too tightly.\n<Subject 4> is the scene environment from <Picture 4>, a compact and oppressive consultation room with a desk, computer, files, and an anatomical chart on the wall, lit by cold artificial light with a tense, cold-toned atmosphere.\n<Picture 1> is a character reference image for <Subject 1>, providing appearance, facial features, hairstyle, and clothing guidance.\n<Picture 2> is a character reference image for <Subject 2>, providing appearance, facial features, hairstyle, and clothing guidance.\n<Picture 3> is a prop reference image providing visual reference for <Subject 3>.\n<Picture 4> is a soft reference for the scene environment, providing style, cold color palette, oppressive lighting, and material texture guidance.\n\nsummary:\n[reference generation] The target video is a 2D Japanese anime style close-up shot from a subjective POV. <Subject 1> holds <Subject 3> in her trembling hands, reading the diagnosis as the harsh light illuminates the paper. <Subject 2> appears blurred in the deep background of the oppressive clinic office. The mood is one of shock and despair, driven by the dialogue of <Subject 1>.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - <Subject 1>'s slender fingers, pale complexion, dark loose sleeves, and old bracelet are clearly visible in the close-up, matching her defined appearance.\n<Subject 2> (appears in [Shot 1]): partially_preserved - <Subject 2>'s white coat, tie, and gold-rimmed glasses are visible, but he remains an out-of-focus figure deep in the background, obscuring fine details.\n<Subject 3> (appears in [Shot 1]): fully_preserved - the diagnostic report's white paper, black text detailing the liver tumor diagnosis, and slightly crumpled texture are clearly shown.\n<Subject 4> (appears in [Shot 1]): weak_reference - the background of the consultation room maintains the cold-toned, oppressive lighting style of the reference, but the composition focuses tightly on the report and the blurred doctor, leaving the full room layout only suggested.\n\ndetailed_description:\nThe target video is presented in a 2D-animated, Japanese anime style with clean line art and a desaturated, cold color palette that emphasizes the clinical atmosphere.\n[Shot 1] The video opens with an extreme close-up subjective POV shot, directly aligning with the eye level of <Subject 1> as she looks down at the document in her hands. The framing is tilted downward at approximately a 60-degree angle, centering entirely on <Subject 3>, the diagnostic report. The harsh, cold white fluorescent light of the clinic shines directly onto the crumpled white paper, making the surface appear almost blindingly bright and sterile against the darkness surrounding it. The black printed characters reading \"肝部肿瘤，晚期\" are sharply in focus, rendered with a crisp, unforgiving clarity that dominates the frame. In the immediate foreground, the slender, pale, trembling hands of <Subject 1> enter from the bottom edges of the frame, gripping the edges of the paper. Her fingertips press tightly into the paper, creating deep creases and causing a very faint, subtle paper rustling sound. The old bracelet on her right wrist is visible, slightly sliding down her arm, while the loose-fitting dark fabric of her sleeve sways subtly from the tremor in her hands. Deep in the shallow depth of field, the background recedes into a blur of oppressive, cold blue-gray tones. The out-of-focus figure of <Subject 2>, the doctor, is seated distantly on the right side of the composition. His white coat and a faint glint from his gold-rimmed glasses are barely distinguishable, but his features dissolve into soft, blurred shapes as he calmly looks down at another file, creating a stark contrast to the acute distress in the foreground. The camera holds a completely static lock-off shot throughout the six-second duration, refusing to provide any visual relief from the text on the paper. The silence of the room is heavy, broken only by the faint sound of the report trembling. <Subject 1>'s pale face is not shown, but her shaken, fragile voice (S1) breaks the silence, speaking from just behind the camera, reverberating with a slight tremor that matches her hands, <d>[Chinese]……三个月？医生，没有别的办法了吗？</d> As she speaks, her fingers twitch slightly, tightening their grip on the paper for a moment as the devastating weight of the text sinks in.\n\noverall_soundscape:\nA dead, oppressive silence dominates the consultation room, underscored by the faint, continuous hum of the harsh fluorescent lighting overhead. The delicate, persistent sound of paper trembling and being gently crinkled by unsteady hands is the only distinct physical action sound.\n\nnon_diegetic_music:\nA single, sustained low-frequency cello note begins softly at the start and slowly increases in tension without resolving, punctuated by a sparse, echoing high piano note that mimics a failing heartbeat, fading out before the video ends.",
+        "duration_sec": 7
+      }
+    },
+    {
+      "id": 68,
+      "type": "MiniMaxH3DirectorGroupReferenceToVideo",
+      "pos": [
+        -1209.9724334402263,
+        880.8298037032527
+      ],
+      "size": [
+        499.1315848214264,
+        427.14285714285097
+      ],
+      "flags": {},
+      "order": 23,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image_0",
+          "name": "ref_images.ref_image_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 102
+        },
+        {
+          "label": "ref_image_1",
+          "name": "ref_images.ref_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 103
+        },
+        {
+          "label": "ref_image_2",
+          "name": "ref_images.ref_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 101
+        },
+        {
+          "label": "ref_image_3",
+          "name": "ref_images.ref_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_0",
+          "name": "ref_videos.ref_video_0",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "ref_video_audio_0",
+          "name": "ref_video_audios.ref_video_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "ref_audio_0",
+          "name": "ref_audios.ref_audio_0",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "group",
+          "type": "MMX_DIR_GROUP",
+          "links": [
+            104
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3DirectorGroupReferenceToVideo"
+      },
+      "widgets_values": [
+        "subject_definitions:\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, gold-rimmed glasses, a clean white coat over a shirt and tie, and short hair with slight graying.\n<Subject 2> is the young woman, Lin Xi, from <Picture 2>, with a slender yet stubborn frame, delicate but tired and resolute facial features, a slightly pale complexion due to illness, and slightly messy long black straight hair, wearing casual dark-colored loose clothing and an old bracelet on her wrist.\n<Subject 3> is the soft scene environment reference from <Picture 3>, providing general style, cool color palette, artificial lighting mood, and material texture guidance for the cramped consultation room with a desk, computer, files, and an anatomical chart on the wall.\n<Picture 1> is a character reference image for <Subject 1>.\n<Picture 2> is a character reference image for <Subject 2>.\n<Picture 3> is a soft reference for the scene environment, providing visual style and atmosphere guidance.\n\nsummary:\n[reference generation] The target video is an 8-second, single-shot 2D-animated sequence in a Japanese anime style. It depicts a cold, terminal moment in a cramped consultation room. From an over-the-shoulder perspective behind <Subject 2> (Lin Xi), the camera holds a static shot as <Subject 1> (the doctor) coldly delivers a devastating diagnosis while mechanically organizing files, his actions signaling the conclusion of their conversation.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - the doctor's medium build, gold-rimmed glasses, clean white coat over a shirt and tie, and short graying hair are retained.\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's identity is retained; her facial features are not visible, but her slender frame, messy long black hair, dark loose clothing, and old bracelet are partially visible or suggested at the edge of the frame.\n<Subject 3> (appears in [Shot 1]): weak_reference - the environment reflects the cramped consultation room, cool color palette, and artificial lighting atmosphere from <Picture 3>, including the desk, files, and anatomical chart, but is visualized in the 2D-animated Japanese anime style and framed from a specific over-the-shoulder angle with a blurred background as required by the shot narrative.\n<Picture 1>: fully_preserved - used as the appearance reference for <Subject 1>.\n<Picture 2>: fully_preserved - used as the appearance reference for <Subject 2>.\n<Picture 3>: weak_reference - used as a soft reference for the environmental atmosphere, lighting, and color tone.\n\ndetailed_description:\nThe target video is rendered in a 2D-animated, Japanese anime style with clean lines, muted cool tones, and precise shading.\n[Shot 1] A static over-the-shoulder shot, positioned directly behind the right shoulder of <Subject 2>, Lin Xi. Her silhouette, a slender young woman with slightly messy long black hair falling straight down her back and wearing a dark-colored loose top, is heavily out-of-focus and dominates the immediate foreground in the lower-left corner of the frame. A sliver of an old bracelet is faintly visible on her motionless wrist. Beyond her, the consultation room is in sharp focus, adopting the cold, oppressive atmosphere suggested by the soft reference. The cool, artificial light casts desaturated blue and grey tones across the scene. <Subject 1>, the middle-aged doctor with a medium build, short graying hair, and gold-rimmed glasses, sits in a swivel chair in the right foreground, his body angled left toward the desk. He wears a pristine white coat over a shirt and tie. A computer monitor, stacks of patient files, and loose papers are scattered across the desk in front of him. On the wall behind him, slightly blurred to suggest depth of field, is an anatomical chart. Without looking up, <Subject 1> (S1) lets out a weary sigh. His expression is cold and numb, the harsh light reflecting off his glasses and obscuring his eyes. He speaks in a detached, low, and matter-of-fact clinical voice, <d>[Chinese] \"很遗憾，发现得太晚了。好好安排接下来的日子吧。\"</d> As he finishes the sentence, his gaze remains downcast. His hands, rendered with clean anime-style lines, begin to mechanically sort and tap the files on the desk into a neat stack with a sense of finality. The soft rustle of paper is the only sound accompanying his movement. The doctor’s indifferent profile remains fixed in the foreground, his posture and actions a clear signal of the conversation’s end, while Lin Xi’s blurred, motionless form in the foreground faces him, silently absorbing the terminal verdict.\n\noverall_soundscape:\nThe quiet, sterile hum of the consultation room’s ventilation system. The crisp, repetitive sound of paper being shuffled and tapped against the desk’s surface.\n\nnon_diegetic_music:\nA sparse, slow-tempo piano note hangs in the air, followed by a sustained, low-frequency cello drone that gradually fades in volume, ending just before the shot concludes.",
+        9
+      ],
+      "widgets_values_named": {
+        "prompt": "subject_definitions:\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, gold-rimmed glasses, a clean white coat over a shirt and tie, and short hair with slight graying.\n<Subject 2> is the young woman, Lin Xi, from <Picture 2>, with a slender yet stubborn frame, delicate but tired and resolute facial features, a slightly pale complexion due to illness, and slightly messy long black straight hair, wearing casual dark-colored loose clothing and an old bracelet on her wrist.\n<Subject 3> is the soft scene environment reference from <Picture 3>, providing general style, cool color palette, artificial lighting mood, and material texture guidance for the cramped consultation room with a desk, computer, files, and an anatomical chart on the wall.\n<Picture 1> is a character reference image for <Subject 1>.\n<Picture 2> is a character reference image for <Subject 2>.\n<Picture 3> is a soft reference for the scene environment, providing visual style and atmosphere guidance.\n\nsummary:\n[reference generation] The target video is an 8-second, single-shot 2D-animated sequence in a Japanese anime style. It depicts a cold, terminal moment in a cramped consultation room. From an over-the-shoulder perspective behind <Subject 2> (Lin Xi), the camera holds a static shot as <Subject 1> (the doctor) coldly delivers a devastating diagnosis while mechanically organizing files, his actions signaling the conclusion of their conversation.\n\nretention_analysis:\n<Subject 1> (appears in [Shot 1]): fully_preserved - the doctor's medium build, gold-rimmed glasses, clean white coat over a shirt and tie, and short graying hair are retained.\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's identity is retained; her facial features are not visible, but her slender frame, messy long black hair, dark loose clothing, and old bracelet are partially visible or suggested at the edge of the frame.\n<Subject 3> (appears in [Shot 1]): weak_reference - the environment reflects the cramped consultation room, cool color palette, and artificial lighting atmosphere from <Picture 3>, including the desk, files, and anatomical chart, but is visualized in the 2D-animated Japanese anime style and framed from a specific over-the-shoulder angle with a blurred background as required by the shot narrative.\n<Picture 1>: fully_preserved - used as the appearance reference for <Subject 1>.\n<Picture 2>: fully_preserved - used as the appearance reference for <Subject 2>.\n<Picture 3>: weak_reference - used as a soft reference for the environmental atmosphere, lighting, and color tone.\n\ndetailed_description:\nThe target video is rendered in a 2D-animated, Japanese anime style with clean lines, muted cool tones, and precise shading.\n[Shot 1] A static over-the-shoulder shot, positioned directly behind the right shoulder of <Subject 2>, Lin Xi. Her silhouette, a slender young woman with slightly messy long black hair falling straight down her back and wearing a dark-colored loose top, is heavily out-of-focus and dominates the immediate foreground in the lower-left corner of the frame. A sliver of an old bracelet is faintly visible on her motionless wrist. Beyond her, the consultation room is in sharp focus, adopting the cold, oppressive atmosphere suggested by the soft reference. The cool, artificial light casts desaturated blue and grey tones across the scene. <Subject 1>, the middle-aged doctor with a medium build, short graying hair, and gold-rimmed glasses, sits in a swivel chair in the right foreground, his body angled left toward the desk. He wears a pristine white coat over a shirt and tie. A computer monitor, stacks of patient files, and loose papers are scattered across the desk in front of him. On the wall behind him, slightly blurred to suggest depth of field, is an anatomical chart. Without looking up, <Subject 1> (S1) lets out a weary sigh. His expression is cold and numb, the harsh light reflecting off his glasses and obscuring his eyes. He speaks in a detached, low, and matter-of-fact clinical voice, <d>[Chinese] \"很遗憾，发现得太晚了。好好安排接下来的日子吧。\"</d> As he finishes the sentence, his gaze remains downcast. His hands, rendered with clean anime-style lines, begin to mechanically sort and tap the files on the desk into a neat stack with a sense of finality. The soft rustle of paper is the only sound accompanying his movement. The doctor’s indifferent profile remains fixed in the foreground, his posture and actions a clear signal of the conversation’s end, while Lin Xi’s blurred, motionless form in the foreground faces him, silently absorbing the terminal verdict.\n\noverall_soundscape:\nThe quiet, sterile hum of the consultation room’s ventilation system. The crisp, repetitive sound of paper being shuffled and tapped against the desk’s surface.\n\nnon_diegetic_music:\nA sparse, slow-tempo piano note hangs in the air, followed by a sustained, low-frequency cello drone that gradually fades in volume, ending just before the shot concludes.",
+        "duration_sec": 9
+      }
+    },
+    {
+      "id": 28,
+      "type": "PathchSageAttentionKJ",
+      "pos": [
+        1148.7067882933193,
+        -486.5301822178995
+      ],
+      "size": [
+        270,
+        82
+      ],
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            107
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PathchSageAttentionKJ"
+      },
+      "widgets_values": [
+        "auto",
+        false
+      ],
+      "widgets_values_named": {
+        "sage_attention": "auto",
+        "allow_compile": false
+      }
+    },
+    {
+      "id": 29,
+      "type": "MiniMaxH3MemoryEfficientSageAttentionPatch",
+      "pos": [
+        2065.02088646528,
+        -303.78632235363443
+      ],
+      "size": [
+        320.323828125,
+        26
+      ],
+      "flags": {},
+      "order": 17,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3MemoryEfficientSageAttentionPatch"
+      }
+    },
+    {
+      "id": 69,
+      "type": "TESpeedMiniMaxH3",
+      "pos": [
+        2084.451997237287,
+        -528.2955959689269
+      ],
+      "size": [
+        306.640625,
+        178
+      ],
+      "flags": {},
+      "order": 18,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": []
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "TESpeedMiniMaxH3"
+      },
+      "widgets_values": [
+        0.12,
+        0.1,
+        0.9,
+        2,
+        "cpu",
+        0.75
+      ],
+      "widgets_values_named": {
+        "processing_control_value": 0.12,
+        "processing_percent_1": 0.1,
+        "processing_percent_2": 0.9,
+        "mcs": 2,
+        "device": "cpu",
+        "cache_depth": 0.75
+      }
+    },
+    {
+      "id": 70,
+      "type": "LoraLoaderModelOnly",
+      "pos": [
+        1467.8447104155473,
+        -493.1298800887182
+      ],
+      "size": [
+        521.0603959614803,
+        82
+      ],
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 107
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            108
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoraLoaderModelOnly",
+        "cnr_id": "comfy-core",
+        "ver": "0.31.0"
+      },
+      "widgets_values": [
+        "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        0.75
+      ],
+      "widgets_values_named": {
+        "lora_name": "minimax_h3_fl2v_turbo_8step_v1.0_comfyui_bf16.safetensors",
+        "strength_model": 0.75
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 5,
+      "type": "MiniMaxH3Director",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        1028.3548409598216,
+        1484
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 108
+        },
+        {
+          "name": "video_vae",
+          "type": "VAE",
+          "link": 3
+        },
+        {
+          "name": "audio_vae",
+          "type": "VAE",
+          "link": 4
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 2
+        },
+        {
+          "name": "i2v_groups",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": null
+        },
+        {
+          "name": "r2v_groups",
+          "shape": 7,
+          "type": "MMX_DIR_GROUP",
+          "link": 65
+        },
+        {
+          "name": "refine",
+          "shape": 7,
+          "type": "MMX_DIR_REFINE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "audio",
+          "shape": 6,
+          "type": "AUDIO",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            7,
+            10
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": [
+            11
+          ]
+        },
+        {
+          "name": "source_images",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        },
+        {
+          "name": "report",
+          "type": "STRING",
+          "links": [
+            8
+          ]
+        },
+        {
+          "name": "images_pre_refine",
+          "shape": 6,
+          "type": "IMAGE",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniMaxH3Director"
+      },
+      "widgets_values": [
+        "r2v — 参考主体生视频(Reference to Video)",
+        "",
+        "采样设置",
+        1,
+        75287780483005,
+        "randomize",
+        24,
+        1152,
+        640,
+        1152,
+        695,
+        "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"prompt_batch\",\"totalFrames\":695,\"frameRate\":24,\"width\":1152,\"height\":640,\"refMaxSize\":1152,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"16:9 (宽屏)\",\"megapixels\":0.7,\"multiple\":32,\"longEdge\":1152,\"width\":1152,\"height\":640,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":true,\"continuityOverlapFrames\":22},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"r2v — 参考主体生视频(Reference to Video)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[],\"refVideos\":[],\"commonEnabled\":false,\"commonCollapsed\":true},\"segments\":[{\"id\":\"msjwsk4s1y247\",\"start\":0,\"length\":294,\"frameCount\":294,\"durationSec\":12,\"prompt\":\"subject_definitions:\\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, short graying hair, and gold-rimmed glasses. He wears a clean white lab coat over a shirt and tie.\\n<Subject 2> is the young woman Lin Xi from <Picture 2>, with a slender build, delicate but tired features, a slightly pale complexion, and slightly disheveled long black straight hair. She wears casual dark-colored loose clothing and an old bracelet on her wrist.\\n<Subject 3> is the diagnostic report (\\\"诊断报告\\\") prop from <Picture 3>, a white paper document with black text detailing Lin Xi's terminal liver cancer diagnosis, visibly crumpled and creased.\\n<Subject 4> is the scene environment from <Picture 4>, a compact examination room with a desk, computer, documents, and anatomical charts on the walls, characterized by cold tones, artificial lighting, and a tense, oppressive atmosphere.\\n\\nsummary:\\n[reference generation] The target video is a 12-second animated shot depicting a doctor in a cold-toned examination room delivering a terminal cancer diagnosis to Lin Xi. <Subject 1> delivers the devastating news while handling <Subject 3>, as <Subject 2> listens from an unseen position. The scene uses <Picture 1> and <Picture 2> for character appearance, <Picture 3> for the prop, and <Picture 4> as a soft guide for the environment's mood, color palette, and lighting.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): partially_preserved - the doctor's appearance, glasses, white coat, and build are retained; his orientation and posture are adjusted to match the over-the-shoulder framing.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's physical features, hair, and clothing style are retained, but she is only partially visible from behind or out of focus in the foreground.\\n<Subject 3> (appears in [Shot 1]): fully_preserved - the crumpled diagnostic report is visible on the desk, retaining its appearance and text.\\n<Subject 4> (appears in [Shot 1]): weak_reference - the cold color palette, clinical atmosphere, and lighting mood from the reference are retained, but the specific composition and frame detailed by the shot override the reference image.\\n\\ndetailed_description:\\nThe target video uses a 2D-animated Japanese anime style with clean lines, sharp shadows, and a cold blue-tone color palette.\\n[Shot 1] A static over-the-shoulder medium shot from Lin Xi's right-rear perspective establishes the compact examination room, with the camera positioned slightly above the doctor's eye level and angled downward by ten degrees. The background is dominated by a window with closed blinds, through which a harsh, cold backlight enters and silhouettes the rigid contour of <Subject 1>. <Subject 1>, the middle-aged doctor with short graying hair and gold-rimmed glasses from <Picture 1>, sits in a swivel chair positioned in the right-center of the frame. He wears a clean white lab coat over a shirt and tie, facing toward the left side of the frame. His posture is stiff, and his gaze is cast downward, avoiding eye contact. In the immediate foreground on the far left of the frame, only a sliver of <Subject 2>'s right shoulder and a few strands of her long, slightly unkempt black hair are visible, out of focus, grounding the perspective. The office itself, softly guided by the atmosphere of <Subject 4>, is sparse and oppressive; an anatomical chart hangs dimly on the wall, and a desk dominates the foreground between the doctor and the patient, with a computer monitor glowing faintly. A desk lamp casts sharp, angular shadows across the surface, upon which <Subject 3>, the crumpled diagnostic report from <Picture 3>, lies. In the tense silence, the muffled sound of a quickening heartbeat begins to rise from the background. <Subject 1> raises his right hand and uses his index finger to push his gold-rimmed glasses up the bridge of his nose, the lens flaring briefly from the window light. He then taps the report on the desk with a stiff, professional indifference. With a flat, emotionally detached voice that carries a clinical numbness, <Subject 1> (S1) says, <d>[Chinese] 林小姐，你的检查结果出来了。肝部肿瘤，已经晚期，估计也就三个月了。治疗没多大意义，回去该吃吃该喝喝吧。</d> As he speaks, he avoids looking toward Lin Xi, his eyes remaining fixed on the report or just to the side of it. Near the end of the line, his hand slides <Subject 3> slightly forward across the desk toward the unseen Lin Xi, the paper's crumpled creases catching the sharp light. Throughout the shot, the oppressive cold blue tone saturates the room, with the edges of the frame fading into deep shadow, emphasizing the suffocating, clinical finality of the moment.\\n\\noverall_soundscape:\\nA tense, sterile silence fills the examination room, featureless save for the faint hum of the computer monitor. The sound of a human heartbeat gradually rises from a low murmur to a loud, pounding rhythm, dominating the soundscape and providing the only emotional counterpoint to the doctor's flat, detached voice.\\n\\nnon_diegetic_music:\\nN/A\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"8ceb0902a5bf4cbfba755f1d0be5d8ae.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":3,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":false},{\"id\":\"mspi71l37ly6e\",\"start\":294,\"length\":175,\"frameCount\":175,\"durationSec\":7,\"prompt\":\"subject_definitions:\\n<Subject 1> is the young woman (林夕) from <Picture 1>, with a slender yet stubborn figure, delicate features, and eyes that often show fatigue and determination; her complexion is slightly pale due to illness, with long, slightly disheveled black hair, and she wears dark casual loose clothes with an old bracelet on her wrist.\\n<Subject 2> is the middle-aged male doctor from <Picture 2>, of medium build, wearing gold-rimmed glasses, a neat white coat over a shirt and tie, with short graying hair.\\n<Subject 3> is the diagnostic report from <Picture 3>, a white paper with black text clearly stating a late-stage liver cancer diagnosis, slightly crumpled from being held too tightly.\\n<Subject 4> is the scene environment from <Picture 4>, a compact and oppressive consultation room with a desk, computer, files, and an anatomical chart on the wall, lit by cold artificial light with a tense, cold-toned atmosphere.\\n<Picture 1> is a character reference image for <Subject 1>, providing appearance, facial features, hairstyle, and clothing guidance.\\n<Picture 2> is a character reference image for <Subject 2>, providing appearance, facial features, hairstyle, and clothing guidance.\\n<Picture 3> is a prop reference image providing visual reference for <Subject 3>.\\n<Picture 4> is a soft reference for the scene environment, providing style, cold color palette, oppressive lighting, and material texture guidance.\\n\\nsummary:\\n[reference generation] The target video is a 2D Japanese anime style close-up shot from a subjective POV. <Subject 1> holds <Subject 3> in her trembling hands, reading the diagnosis as the harsh light illuminates the paper. <Subject 2> appears blurred in the deep background of the oppressive clinic office. The mood is one of shock and despair, driven by the dialogue of <Subject 1>.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - <Subject 1>'s slender fingers, pale complexion, dark loose sleeves, and old bracelet are clearly visible in the close-up, matching her defined appearance.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - <Subject 2>'s white coat, tie, and gold-rimmed glasses are visible, but he remains an out-of-focus figure deep in the background, obscuring fine details.\\n<Subject 3> (appears in [Shot 1]): fully_preserved - the diagnostic report's white paper, black text detailing the liver tumor diagnosis, and slightly crumpled texture are clearly shown.\\n<Subject 4> (appears in [Shot 1]): weak_reference - the background of the consultation room maintains the cold-toned, oppressive lighting style of the reference, but the composition focuses tightly on the report and the blurred doctor, leaving the full room layout only suggested.\\n\\ndetailed_description:\\nThe target video is presented in a 2D-animated, Japanese anime style with clean line art and a desaturated, cold color palette that emphasizes the clinical atmosphere.\\n[Shot 1] The video opens with an extreme close-up subjective POV shot, directly aligning with the eye level of <Subject 1> as she looks down at the document in her hands. The framing is tilted downward at approximately a 60-degree angle, centering entirely on <Subject 3>, the diagnostic report. The harsh, cold white fluorescent light of the clinic shines directly onto the crumpled white paper, making the surface appear almost blindingly bright and sterile against the darkness surrounding it. The black printed characters reading \\\"肝部肿瘤，晚期\\\" are sharply in focus, rendered with a crisp, unforgiving clarity that dominates the frame. In the immediate foreground, the slender, pale, trembling hands of <Subject 1> enter from the bottom edges of the frame, gripping the edges of the paper. Her fingertips press tightly into the paper, creating deep creases and causing a very faint, subtle paper rustling sound. The old bracelet on her right wrist is visible, slightly sliding down her arm, while the loose-fitting dark fabric of her sleeve sways subtly from the tremor in her hands. Deep in the shallow depth of field, the background recedes into a blur of oppressive, cold blue-gray tones. The out-of-focus figure of <Subject 2>, the doctor, is seated distantly on the right side of the composition. His white coat and a faint glint from his gold-rimmed glasses are barely distinguishable, but his features dissolve into soft, blurred shapes as he calmly looks down at another file, creating a stark contrast to the acute distress in the foreground. The camera holds a completely static lock-off shot throughout the six-second duration, refusing to provide any visual relief from the text on the paper. The silence of the room is heavy, broken only by the faint sound of the report trembling. <Subject 1>'s pale face is not shown, but her shaken, fragile voice (S1) breaks the silence, speaking from just behind the camera, reverberating with a slight tremor that matches her hands, <d>[Chinese]……三个月？医生，没有别的办法了吗？</d> As she speaks, her fingers twitch slightly, tightening their grip on the paper for a moment as the devastating weight of the text sinks in.\\n\\noverall_soundscape:\\nA dead, oppressive silence dominates the consultation room, underscored by the faint, continuous hum of the harsh fluorescent lighting overhead. The delicate, persistent sound of paper trembling and being gently crinkled by unsteady hands is the only distinct physical action sound.\\n\\nnon_diegetic_music:\\nA single, sustained low-frequency cello note begins softly at the start and slowly increases in tension without resolving, punctuated by a sparse, echoing high piano note that mimics a failing heartbeat, fading out before the video ends.\",\"negativePrompt\":\"\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"8ceb0902a5bf4cbfba755f1d0be5d8ae.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":3,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"mspickqf3pwqi\",\"start\":469,\"length\":226,\"frameCount\":226,\"durationSec\":9,\"prompt\":\"subject_definitions:\\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, gold-rimmed glasses, a clean white coat over a shirt and tie, and short hair with slight graying.\\n<Subject 2> is the young woman, Lin Xi, from <Picture 2>, with a slender yet stubborn frame, delicate but tired and resolute facial features, a slightly pale complexion due to illness, and slightly messy long black straight hair, wearing casual dark-colored loose clothing and an old bracelet on her wrist.\\n<Subject 3> is the soft scene environment reference from <Picture 3>, providing general style, cool color palette, artificial lighting mood, and material texture guidance for the cramped consultation room with a desk, computer, files, and an anatomical chart on the wall.\\n<Picture 1> is a character reference image for <Subject 1>.\\n<Picture 2> is a character reference image for <Subject 2>.\\n<Picture 3> is a soft reference for the scene environment, providing visual style and atmosphere guidance.\\n\\nsummary:\\n[reference generation] The target video is an 8-second, single-shot 2D-animated sequence in a Japanese anime style. It depicts a cold, terminal moment in a cramped consultation room. From an over-the-shoulder perspective behind <Subject 2> (Lin Xi), the camera holds a static shot as <Subject 1> (the doctor) coldly delivers a devastating diagnosis while mechanically organizing files, his actions signaling the conclusion of their conversation.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - the doctor's medium build, gold-rimmed glasses, clean white coat over a shirt and tie, and short graying hair are retained.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's identity is retained; her facial features are not visible, but her slender frame, messy long black hair, dark loose clothing, and old bracelet are partially visible or suggested at the edge of the frame.\\n<Subject 3> (appears in [Shot 1]): weak_reference - the environment reflects the cramped consultation room, cool color palette, and artificial lighting atmosphere from <Picture 3>, including the desk, files, and anatomical chart, but is visualized in the 2D-animated Japanese anime style and framed from a specific over-the-shoulder angle with a blurred background as required by the shot narrative.\\n<Picture 1>: fully_preserved - used as the appearance reference for <Subject 1>.\\n<Picture 2>: fully_preserved - used as the appearance reference for <Subject 2>.\\n<Picture 3>: weak_reference - used as a soft reference for the environmental atmosphere, lighting, and color tone.\\n\\ndetailed_description:\\nThe target video is rendered in a 2D-animated, Japanese anime style with clean lines, muted cool tones, and precise shading.\\n[Shot 1] A static over-the-shoulder shot, positioned directly behind the right shoulder of <Subject 2>, Lin Xi. Her silhouette, a slender young woman with slightly messy long black hair falling straight down her back and wearing a dark-colored loose top, is heavily out-of-focus and dominates the immediate foreground in the lower-left corner of the frame. A sliver of an old bracelet is faintly visible on her motionless wrist. Beyond her, the consultation room is in sharp focus, adopting the cold, oppressive atmosphere suggested by the soft reference. The cool, artificial light casts desaturated blue and grey tones across the scene. <Subject 1>, the middle-aged doctor with a medium build, short graying hair, and gold-rimmed glasses, sits in a swivel chair in the right foreground, his body angled left toward the desk. He wears a pristine white coat over a shirt and tie. A computer monitor, stacks of patient files, and loose papers are scattered across the desk in front of him. On the wall behind him, slightly blurred to suggest depth of field, is an anatomical chart. Without looking up, <Subject 1> (S1) lets out a weary sigh. His expression is cold and numb, the harsh light reflecting off his glasses and obscuring his eyes. He speaks in a detached, low, and matter-of-fact clinical voice, <d>[Chinese] \\\"很遗憾，发现得太晚了。好好安排接下来的日子吧。\\\"</d> As he finishes the sentence, his gaze remains downcast. His hands, rendered with clean anime-style lines, begin to mechanically sort and tap the files on the desk into a neat stack with a sense of finality. The soft rustle of paper is the only sound accompanying his movement. The doctor’s indifferent profile remains fixed in the foreground, his posture and actions a clear signal of the conversation’s end, while Lin Xi’s blurred, motionless form in the foreground faces him, silently absorbing the terminal verdict.\\n\\noverall_soundscape:\\nThe quiet, sterile hum of the consultation room’s ventilation system. The crisp, repetitive sound of paper being shuffled and tapped against the desk’s surface.\\n\\nnon_diegetic_music:\\nA sparse, slow-tempo piano note hangs in the air, followed by a sustained, low-frequency cello drone that gradually fades in volume, ending just before the shot concludes.\",\"negativePrompt\":\"\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":5,\"prompt\":\"猴子在快速奔跑，过程中裤子掉了，仍然在跑\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null}],\"runSelectEnabled\":true,\"runSelection\":[0,1,2],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[{\"id\":\"shot0\",\"imageFile\":\"\",\"width\":0,\"height\":0,\"start\":0,\"length\":124,\"frameCount\":124,\"durationSec\":5,\"prompt\":\"猴子在快速奔跑，过程中裤子掉了，仍然在跑\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":false}],\"durationSec\":5}",
+        "高级采样",
+        8,
+        "res_multistep",
+        "simple",
+        12,
+        3,
+        "性能",
+        true,
+        false,
+        ""
+      ],
+      "widgets_values_named": {
+        "task_type": "r2v — 参考主体生视频(Reference to Video)",
+        "global_prompt": "",
+        "bd_grp_sample": "采样设置",
+        "cfg": 1,
+        "seed": 75287780483005,
+        "control_after_generate": "randomize",
+        "frame_rate": 24,
+        "width": 1152,
+        "height": 640,
+        "ref_max_size": 1152,
+        "total_frames": 695,
+        "timeline_data": "{\"version\":5,\"editMode\":\"segment\",\"timelineMode\":\"prompt_batch\",\"totalFrames\":695,\"frameRate\":24,\"width\":1152,\"height\":640,\"refMaxSize\":1152,\"output\":{\"mode\":\"fixed\",\"aspectRatio\":\"16:9 (宽屏)\",\"megapixels\":0.7,\"multiple\":32,\"longEdge\":1152,\"width\":1152,\"height\":640,\"maxExportFrames\":0,\"exportMode\":\"all\",\"audioMode\":\"generate\",\"continuityEnabled\":true,\"continuityOverlapFrames\":22},\"videoClips\":[],\"video\":{\"fileName\":\"\",\"videoFile\":\"\",\"subfolder\":\"\",\"type\":\"input\",\"frames\":[],\"frameMap\":[],\"sourceFrameCount\":124,\"deletedSourceRanges\":[]},\"global\":{\"taskType\":\"r2v — 参考主体生视频(Reference to Video)\",\"prompt\":\"\",\"refs\":[],\"referenceVideo\":{\"videoFile\":\"\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},\"continuousReference\":false,\"genImage\":{\"imageFile\":\"\"},\"refAudios\":[],\"refVideos\":[],\"commonEnabled\":false,\"commonCollapsed\":true},\"segments\":[{\"id\":\"msjwsk4s1y247\",\"start\":0,\"length\":294,\"frameCount\":294,\"durationSec\":12,\"prompt\":\"subject_definitions:\\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, short graying hair, and gold-rimmed glasses. He wears a clean white lab coat over a shirt and tie.\\n<Subject 2> is the young woman Lin Xi from <Picture 2>, with a slender build, delicate but tired features, a slightly pale complexion, and slightly disheveled long black straight hair. She wears casual dark-colored loose clothing and an old bracelet on her wrist.\\n<Subject 3> is the diagnostic report (\\\"诊断报告\\\") prop from <Picture 3>, a white paper document with black text detailing Lin Xi's terminal liver cancer diagnosis, visibly crumpled and creased.\\n<Subject 4> is the scene environment from <Picture 4>, a compact examination room with a desk, computer, documents, and anatomical charts on the walls, characterized by cold tones, artificial lighting, and a tense, oppressive atmosphere.\\n\\nsummary:\\n[reference generation] The target video is a 12-second animated shot depicting a doctor in a cold-toned examination room delivering a terminal cancer diagnosis to Lin Xi. <Subject 1> delivers the devastating news while handling <Subject 3>, as <Subject 2> listens from an unseen position. The scene uses <Picture 1> and <Picture 2> for character appearance, <Picture 3> for the prop, and <Picture 4> as a soft guide for the environment's mood, color palette, and lighting.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): partially_preserved - the doctor's appearance, glasses, white coat, and build are retained; his orientation and posture are adjusted to match the over-the-shoulder framing.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's physical features, hair, and clothing style are retained, but she is only partially visible from behind or out of focus in the foreground.\\n<Subject 3> (appears in [Shot 1]): fully_preserved - the crumpled diagnostic report is visible on the desk, retaining its appearance and text.\\n<Subject 4> (appears in [Shot 1]): weak_reference - the cold color palette, clinical atmosphere, and lighting mood from the reference are retained, but the specific composition and frame detailed by the shot override the reference image.\\n\\ndetailed_description:\\nThe target video uses a 2D-animated Japanese anime style with clean lines, sharp shadows, and a cold blue-tone color palette.\\n[Shot 1] A static over-the-shoulder medium shot from Lin Xi's right-rear perspective establishes the compact examination room, with the camera positioned slightly above the doctor's eye level and angled downward by ten degrees. The background is dominated by a window with closed blinds, through which a harsh, cold backlight enters and silhouettes the rigid contour of <Subject 1>. <Subject 1>, the middle-aged doctor with short graying hair and gold-rimmed glasses from <Picture 1>, sits in a swivel chair positioned in the right-center of the frame. He wears a clean white lab coat over a shirt and tie, facing toward the left side of the frame. His posture is stiff, and his gaze is cast downward, avoiding eye contact. In the immediate foreground on the far left of the frame, only a sliver of <Subject 2>'s right shoulder and a few strands of her long, slightly unkempt black hair are visible, out of focus, grounding the perspective. The office itself, softly guided by the atmosphere of <Subject 4>, is sparse and oppressive; an anatomical chart hangs dimly on the wall, and a desk dominates the foreground between the doctor and the patient, with a computer monitor glowing faintly. A desk lamp casts sharp, angular shadows across the surface, upon which <Subject 3>, the crumpled diagnostic report from <Picture 3>, lies. In the tense silence, the muffled sound of a quickening heartbeat begins to rise from the background. <Subject 1> raises his right hand and uses his index finger to push his gold-rimmed glasses up the bridge of his nose, the lens flaring briefly from the window light. He then taps the report on the desk with a stiff, professional indifference. With a flat, emotionally detached voice that carries a clinical numbness, <Subject 1> (S1) says, <d>[Chinese] 林小姐，你的检查结果出来了。肝部肿瘤，已经晚期，估计也就三个月了。治疗没多大意义，回去该吃吃该喝喝吧。</d> As he speaks, he avoids looking toward Lin Xi, his eyes remaining fixed on the report or just to the side of it. Near the end of the line, his hand slides <Subject 3> slightly forward across the desk toward the unseen Lin Xi, the paper's crumpled creases catching the sharp light. Throughout the shot, the oppressive cold blue tone saturates the room, with the edges of the frame fading into deep shadow, emphasizing the suffocating, clinical finality of the moment.\\n\\noverall_soundscape:\\nA tense, sterile silence fills the examination room, featureless save for the faint hum of the computer monitor. The sound of a human heartbeat gradually rises from a low murmur to a loud, pounding rhythm, dominating the soundscape and providing the only emotional counterpoint to the doctor's flat, detached voice.\\n\\nnon_diegetic_music:\\nN/A\",\"negativePrompt\":\"bad video\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"8ceb0902a5bf4cbfba755f1d0be5d8ae.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":3,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":false},{\"id\":\"mspi71l37ly6e\",\"start\":294,\"length\":175,\"frameCount\":175,\"durationSec\":7,\"prompt\":\"subject_definitions:\\n<Subject 1> is the young woman (林夕) from <Picture 1>, with a slender yet stubborn figure, delicate features, and eyes that often show fatigue and determination; her complexion is slightly pale due to illness, with long, slightly disheveled black hair, and she wears dark casual loose clothes with an old bracelet on her wrist.\\n<Subject 2> is the middle-aged male doctor from <Picture 2>, of medium build, wearing gold-rimmed glasses, a neat white coat over a shirt and tie, with short graying hair.\\n<Subject 3> is the diagnostic report from <Picture 3>, a white paper with black text clearly stating a late-stage liver cancer diagnosis, slightly crumpled from being held too tightly.\\n<Subject 4> is the scene environment from <Picture 4>, a compact and oppressive consultation room with a desk, computer, files, and an anatomical chart on the wall, lit by cold artificial light with a tense, cold-toned atmosphere.\\n<Picture 1> is a character reference image for <Subject 1>, providing appearance, facial features, hairstyle, and clothing guidance.\\n<Picture 2> is a character reference image for <Subject 2>, providing appearance, facial features, hairstyle, and clothing guidance.\\n<Picture 3> is a prop reference image providing visual reference for <Subject 3>.\\n<Picture 4> is a soft reference for the scene environment, providing style, cold color palette, oppressive lighting, and material texture guidance.\\n\\nsummary:\\n[reference generation] The target video is a 2D Japanese anime style close-up shot from a subjective POV. <Subject 1> holds <Subject 3> in her trembling hands, reading the diagnosis as the harsh light illuminates the paper. <Subject 2> appears blurred in the deep background of the oppressive clinic office. The mood is one of shock and despair, driven by the dialogue of <Subject 1>.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - <Subject 1>'s slender fingers, pale complexion, dark loose sleeves, and old bracelet are clearly visible in the close-up, matching her defined appearance.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - <Subject 2>'s white coat, tie, and gold-rimmed glasses are visible, but he remains an out-of-focus figure deep in the background, obscuring fine details.\\n<Subject 3> (appears in [Shot 1]): fully_preserved - the diagnostic report's white paper, black text detailing the liver tumor diagnosis, and slightly crumpled texture are clearly shown.\\n<Subject 4> (appears in [Shot 1]): weak_reference - the background of the consultation room maintains the cold-toned, oppressive lighting style of the reference, but the composition focuses tightly on the report and the blurred doctor, leaving the full room layout only suggested.\\n\\ndetailed_description:\\nThe target video is presented in a 2D-animated, Japanese anime style with clean line art and a desaturated, cold color palette that emphasizes the clinical atmosphere.\\n[Shot 1] The video opens with an extreme close-up subjective POV shot, directly aligning with the eye level of <Subject 1> as she looks down at the document in her hands. The framing is tilted downward at approximately a 60-degree angle, centering entirely on <Subject 3>, the diagnostic report. The harsh, cold white fluorescent light of the clinic shines directly onto the crumpled white paper, making the surface appear almost blindingly bright and sterile against the darkness surrounding it. The black printed characters reading \\\"肝部肿瘤，晚期\\\" are sharply in focus, rendered with a crisp, unforgiving clarity that dominates the frame. In the immediate foreground, the slender, pale, trembling hands of <Subject 1> enter from the bottom edges of the frame, gripping the edges of the paper. Her fingertips press tightly into the paper, creating deep creases and causing a very faint, subtle paper rustling sound. The old bracelet on her right wrist is visible, slightly sliding down her arm, while the loose-fitting dark fabric of her sleeve sways subtly from the tremor in her hands. Deep in the shallow depth of field, the background recedes into a blur of oppressive, cold blue-gray tones. The out-of-focus figure of <Subject 2>, the doctor, is seated distantly on the right side of the composition. His white coat and a faint glint from his gold-rimmed glasses are barely distinguishable, but his features dissolve into soft, blurred shapes as he calmly looks down at another file, creating a stark contrast to the acute distress in the foreground. The camera holds a completely static lock-off shot throughout the six-second duration, refusing to provide any visual relief from the text on the paper. The silence of the room is heavy, broken only by the faint sound of the report trembling. <Subject 1>'s pale face is not shown, but her shaken, fragile voice (S1) breaks the silence, speaking from just behind the camera, reverberating with a slight tremor that matches her hands, <d>[Chinese]……三个月？医生，没有别的办法了吗？</d> As she speaks, her fingers twitch slightly, tightening their grip on the paper for a moment as the devastating weight of the text sinks in.\\n\\noverall_soundscape:\\nA dead, oppressive silence dominates the consultation room, underscored by the faint, continuous hum of the harsh fluorescent lighting overhead. The delicate, persistent sound of paper trembling and being gently crinkled by unsteady hands is the only distinct physical action sound.\\n\\nnon_diegetic_music:\\nA single, sustained low-frequency cello note begins softly at the start and slowly increases in tension without resolving, punctuated by a sparse, echoing high piano note that mimics a failing heartbeat, fading out before the video ends.\",\"negativePrompt\":\"\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"8ceb0902a5bf4cbfba755f1d0be5d8ae.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":3,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true},{\"id\":\"mspickqf3pwqi\",\"start\":469,\"length\":226,\"frameCount\":226,\"durationSec\":9,\"prompt\":\"subject_definitions:\\n<Subject 1> is the middle-aged male doctor from <Picture 1>, with a medium build, gold-rimmed glasses, a clean white coat over a shirt and tie, and short hair with slight graying.\\n<Subject 2> is the young woman, Lin Xi, from <Picture 2>, with a slender yet stubborn frame, delicate but tired and resolute facial features, a slightly pale complexion due to illness, and slightly messy long black straight hair, wearing casual dark-colored loose clothing and an old bracelet on her wrist.\\n<Subject 3> is the soft scene environment reference from <Picture 3>, providing general style, cool color palette, artificial lighting mood, and material texture guidance for the cramped consultation room with a desk, computer, files, and an anatomical chart on the wall.\\n<Picture 1> is a character reference image for <Subject 1>.\\n<Picture 2> is a character reference image for <Subject 2>.\\n<Picture 3> is a soft reference for the scene environment, providing visual style and atmosphere guidance.\\n\\nsummary:\\n[reference generation] The target video is an 8-second, single-shot 2D-animated sequence in a Japanese anime style. It depicts a cold, terminal moment in a cramped consultation room. From an over-the-shoulder perspective behind <Subject 2> (Lin Xi), the camera holds a static shot as <Subject 1> (the doctor) coldly delivers a devastating diagnosis while mechanically organizing files, his actions signaling the conclusion of their conversation.\\n\\nretention_analysis:\\n<Subject 1> (appears in [Shot 1]): fully_preserved - the doctor's medium build, gold-rimmed glasses, clean white coat over a shirt and tie, and short graying hair are retained.\\n<Subject 2> (appears in [Shot 1]): partially_preserved - Lin Xi's identity is retained; her facial features are not visible, but her slender frame, messy long black hair, dark loose clothing, and old bracelet are partially visible or suggested at the edge of the frame.\\n<Subject 3> (appears in [Shot 1]): weak_reference - the environment reflects the cramped consultation room, cool color palette, and artificial lighting atmosphere from <Picture 3>, including the desk, files, and anatomical chart, but is visualized in the 2D-animated Japanese anime style and framed from a specific over-the-shoulder angle with a blurred background as required by the shot narrative.\\n<Picture 1>: fully_preserved - used as the appearance reference for <Subject 1>.\\n<Picture 2>: fully_preserved - used as the appearance reference for <Subject 2>.\\n<Picture 3>: weak_reference - used as a soft reference for the environmental atmosphere, lighting, and color tone.\\n\\ndetailed_description:\\nThe target video is rendered in a 2D-animated, Japanese anime style with clean lines, muted cool tones, and precise shading.\\n[Shot 1] A static over-the-shoulder shot, positioned directly behind the right shoulder of <Subject 2>, Lin Xi. Her silhouette, a slender young woman with slightly messy long black hair falling straight down her back and wearing a dark-colored loose top, is heavily out-of-focus and dominates the immediate foreground in the lower-left corner of the frame. A sliver of an old bracelet is faintly visible on her motionless wrist. Beyond her, the consultation room is in sharp focus, adopting the cold, oppressive atmosphere suggested by the soft reference. The cool, artificial light casts desaturated blue and grey tones across the scene. <Subject 1>, the middle-aged doctor with a medium build, short graying hair, and gold-rimmed glasses, sits in a swivel chair in the right foreground, his body angled left toward the desk. He wears a pristine white coat over a shirt and tie. A computer monitor, stacks of patient files, and loose papers are scattered across the desk in front of him. On the wall behind him, slightly blurred to suggest depth of field, is an anatomical chart. Without looking up, <Subject 1> (S1) lets out a weary sigh. His expression is cold and numb, the harsh light reflecting off his glasses and obscuring his eyes. He speaks in a detached, low, and matter-of-fact clinical voice, <d>[Chinese] \\\"很遗憾，发现得太晚了。好好安排接下来的日子吧。\\\"</d> As he finishes the sentence, his gaze remains downcast. His hands, rendered with clean anime-style lines, begin to mechanically sort and tap the files on the desk into a neat stack with a sense of finality. The soft rustle of paper is the only sound accompanying his movement. The doctor’s indifferent profile remains fixed in the foreground, his posture and actions a clear signal of the conversation’s end, while Lin Xi’s blurred, motionless form in the foreground faces him, silently absorbing the terminal verdict.\\n\\noverall_soundscape:\\nThe quiet, sterile hum of the consultation room’s ventilation system. The crisp, repetitive sound of paper being shuffled and tapped against the desk’s surface.\\n\\nnon_diegetic_music:\\nA sparse, slow-tempo piano note hangs in the air, followed by a sustained, low-frequency cello drone that gradually fades in volume, ending just before the shot concludes.\",\"negativePrompt\":\"\",\"taskType\":\"\",\"refs\":[{\"index\":0,\"imageFile\":\"医生_形象图.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":1,\"imageFile\":\"林夕_形象图 (1) (1).png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"},{\"index\":2,\"imageFile\":\"77a7881b56ad47d38861261258995eba.png\",\"fileName\":\"\",\"type\":\"input\",\"subfolder\":\"\"}],\"refAudios\":[],\"refVideos\":[],\"genImage\":{\"imageFile\":\"\",\"fileName\":\"\"},\"continuityFromPrev\":true}],\"shots\":[{\"id\":\"shot0\",\"durationSec\":5,\"prompt\":\"猴子在快速奔跑，过程中裤子掉了，仍然在跑\",\"negativePrompt\":\"bad video\",\"startImage\":null,\"endImage\":null}],\"runSelectEnabled\":true,\"runSelection\":[0,1,2],\"gen\":{\"defaultFrameCount\":124},\"liveTaePreview\":true,\"keyframes\":[{\"id\":\"shot0\",\"imageFile\":\"\",\"width\":0,\"height\":0,\"start\":0,\"length\":124,\"frameCount\":124,\"durationSec\":5,\"prompt\":\"猴子在快速奔跑，过程中裤子掉了，仍然在跑\",\"negativePrompt\":\"bad video\",\"isStartFrame\":true,\"isEndFrame\":false}],\"durationSec\":5}",
+        "bd_grp_advanced": "高级采样",
+        "steps": 8,
+        "sampler": "res_multistep",
+        "scheduler": "simple",
+        "shift_video": 12,
+        "shift_audio": 3,
+        "bd_grp_perf": "性能",
+        "clear_vram_between_segments": true,
+        "export_source_images": false,
+        "minimax_director_ui": ""
+      }
+    },
+    {
+      "id": 6,
+      "type": "CreateVideo",
+      "pos": [
+        1259.8958282671344,
+        170.65909015590682
+      ],
+      "size": [
+        280,
+        120
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        24,
+        8
+      ],
+      "widgets_values_named": {
+        "fps": 24,
+        "bit_depth": 8
+      }
+    }
+  ],
+  "links": [
+    [
+      2,
+      2,
+      0,
+      5,
+      3,
+      "CLIP"
+    ],
+    [
+      3,
+      3,
+      0,
+      5,
+      1,
+      "VAE"
+    ],
+    [
+      4,
+      4,
+      0,
+      5,
+      2,
+      "VAE"
+    ],
+    [
+      5,
+      5,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      6,
+      5,
+      1,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      7,
+      5,
+      2,
+      6,
+      2,
+      "FLOAT"
+    ],
+    [
+      8,
+      5,
+      5,
+      8,
+      0,
+      "*"
+    ],
+    [
+      9,
+      6,
+      0,
+      7,
+      0,
+      "VIDEO"
+    ],
+    [
+      10,
+      5,
+      2,
+      9,
+      0,
+      "*"
+    ],
+    [
+      11,
+      5,
+      3,
+      10,
+      0,
+      "*"
+    ],
+    [
+      40,
+      1,
+      0,
+      28,
+      0,
+      "MODEL"
+    ],
+    [
+      64,
+      37,
+      0,
+      32,
+      0,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      65,
+      32,
+      0,
+      5,
+      5,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      66,
+      18,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      67,
+      19,
+      0,
+      37,
+      1,
+      "IMAGE"
+    ],
+    [
+      74,
+      45,
+      0,
+      42,
+      1,
+      "IMAGE"
+    ],
+    [
+      76,
+      47,
+      0,
+      37,
+      2,
+      "IMAGE"
+    ],
+    [
+      77,
+      48,
+      0,
+      37,
+      3,
+      "IMAGE"
+    ],
+    [
+      94,
+      61,
+      0,
+      64,
+      2,
+      "IMAGE"
+    ],
+    [
+      95,
+      62,
+      0,
+      64,
+      3,
+      "IMAGE"
+    ],
+    [
+      96,
+      64,
+      0,
+      32,
+      1,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      97,
+      60,
+      0,
+      64,
+      0,
+      "IMAGE"
+    ],
+    [
+      98,
+      59,
+      0,
+      64,
+      1,
+      "IMAGE"
+    ],
+    [
+      101,
+      67,
+      0,
+      68,
+      2,
+      "IMAGE"
+    ],
+    [
+      102,
+      66,
+      0,
+      68,
+      0,
+      "IMAGE"
+    ],
+    [
+      103,
+      65,
+      0,
+      68,
+      1,
+      "IMAGE"
+    ],
+    [
+      104,
+      68,
+      0,
+      32,
+      2,
+      "MMX_DIR_GROUP"
+    ],
+    [
+      107,
+      28,
+      0,
+      70,
+      0,
+      "MODEL"
+    ],
+    [
+      108,
+      70,
+      0,
+      5,
+      0,
+      "MODEL"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "模型加载",
+      "bounding": [
+        433.3126815332408,
+        -617.8888836605067,
+        440,
+        560
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "MiniMax H3 Director",
+      "bounding": [
+        0,
+        0,
+        1120,
+        980
+      ],
+      "color": "#8A8",
+      "flags": {}
+    },
+    {
+      "id": 4,
+      "title": "输出",
+      "bounding": [
+        1160,
+        40,
+        1059.7917856131396,
+        826.9303623099186
+      ],
+      "color": "#b58",
+      "flags": {}
+    },
+    {
+      "id": 5,
+      "title": "加速模块（用就开启，不用可以关掉）",
+      "bounding": [
+        1118.3533322601147,
+        -576.6455810583501,
+        1382.4912495075769,
+        374.0736616887873
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.49.6",
+    "note": "MiniMax H3 Director · external Image to Video groups",
+    "ds": {
+      "scale": 0.9317000000000443,
+      "offset": [
+        66.3553581941178,
+        740.7922609703062
+      ]
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
