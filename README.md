@@ -7,6 +7,12 @@
 [![Vue](https://img.shields.io/badge/vue-3.4-green.svg)](https://vuejs.org/)
 [![Spring Boot](https://img.shields.io/badge/spring--boot-3.2.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
 
+## 视频案例
+
+以下是用本系统全自动创作出的 6 分钟连续短片：
+
+👉 [点击观看 - Bilibili](https://www.bilibili.com/video/BV1Lh8Z6AEHB/?vd_source=f53e58e282c88f94f9851bd38cd22cde)
+
 ---
 
 ## 目录
