@@ -13,6 +13,12 @@
 
 👉 [点击观看 - Bilibili](https://www.bilibili.com/video/BV1Lh8Z6AEHB/?vd_source=f53e58e282c88f94f9851bd38cd22cde)
 
+## 使用教程
+
+保姆级视频教程：手把手教你用本系统全自动生成无限时长短剧和 AI 音乐：
+
+👉 [点击观看 - Bilibili](https://www.bilibili.com/video/BV1AM426BEKD/?spm_id_from=333.1387.homepage.video_card.click&vd_source=f53e58e282c88f94f9851bd38cd22cde)
+
 ---
 
 ## 目录
