@@ -9,9 +9,15 @@
 
 ## 视频案例
 
-以下是用本系统全自动创作出的 6 分钟连续短片：
+以下是用本系统全自动创作出的连续短片：
+
+**6 分钟短片**
 
 👉 [点击观看 - Bilibili](https://www.bilibili.com/video/BV1Lh8Z6AEHB/?vd_source=f53e58e282c88f94f9851bd38cd22cde)
+
+**11 分钟短片**
+
+👉 [点击观看 - Bilibili](https://www.bilibili.com/video/BV1fGaa6KEYi/?spm_id_from=333.1387.homepage.video_card.click&vd_source=f53e58e282c88f94f9851bd38cd22cde)
 
 ## 使用教程
 
