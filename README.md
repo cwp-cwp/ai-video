@@ -188,6 +188,18 @@ LTX2.3视频生成，首帧、导演台模式。
 - **节点报红**：说明缺少对应的自定义节点。点击报红节点可查看缺失的节点名称，打开 ComfyUI Manager 搜索并安装该节点包
 - **模型缺失**：工作流中的模型加载节点会提示缺少的模型名称，根据节点报错信息下载对应模型文件，放入 ComfyUI 的 `models` 对应子目录
 
+> **⚠️ 导演台节点特别说明**：由于导演台节点原作者频繁更新，本系统中的导演台工作流未能及时同步，使用原版节点可能存在不兼容问题。安装导演台节点时，**请务必使用我 fork 的版本**，不要从原版仓库安装：
+>
+> 👉 [https://github.com/cwp-cwp/ComfyUI_MiniMaxH3_Director](https://github.com/cwp-cwp/ComfyUI_MiniMaxH3_Director)
+>
+> 安装步骤：
+>
+> ```bash
+> cd ComfyUI/custom_nodes
+> git clone https://github.com/cwp-cwp/ComfyUI_MiniMaxH3_Director.git
+> pip install -r ComfyUI_MiniMaxH3_Director/requirements.txt
+> ```
+
 > **无需让所有工作流都跑通。** 请根据你要使用的功能，对照下面的分组自行决定需要验证哪些工作流——只验证必选项和自己用得到的可选项即可。
 
 #### 分组 1：资产图生成（必选）✅
