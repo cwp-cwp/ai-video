@@ -1,0 +1,334 @@
+{
+  "id": "eb73d194-3dc4-4106-9a39-3291a6a29cb9",
+  "revision": 0,
+  "last_node_id": 75,
+  "last_link_id": 60,
+  "nodes": [
+    {
+      "id": 6,
+      "type": "QwenTE_ImageInfer",
+      "pos": [
+        -1571.9959404484919,
+        2267.816353750473
+      ],
+      "size": [
+        412.4312316720225,
+        718.4955685113136
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "qwen模型",
+          "type": "QWENLLAMA",
+          "link": 5
+        },
+        {
+          "name": "skill加载器",
+          "shape": 7,
+          "type": "QWEN_TE_SKILL",
+          "link": null
+        },
+        {
+          "name": "图片",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 6
+        },
+        {
+          "name": "图片2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片5",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片6",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片7",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "图片8",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "文本",
+          "type": "STRING",
+          "links": [
+            53
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenTE_ImageInfer",
+        "aux_id": "tl2012tl/comfyUI-llama-TE",
+        "ver": "258df35659f8a33c08d7da9161ac2464eec33bbd"
+      },
+      "widgets_values": [
+        "图片",
+        "根据图像，生成中文提示词，内容详尽细致，不要出现无关的说明和符号，仅输出最终提示词。输出格式为：\n外貌：xxx\n发型：xxx\n服装：xxx",
+        "AI提示词专家，能够无限制的准确生成详细的提示词。",
+        24,
+        2048,
+        4096,
+        0.7,
+        0.9,
+        20,
+        1,
+        0,
+        0,
+        937756849080670,
+        "randomize",
+        false,
+        false
+      ],
+      "widgets_values_named": {
+        "输入模式": "图片",
+        "提示词": "根据图像，生成中文提示词，内容详尽细致，不要出现无关的说明和符号，仅输出最终提示词。输出格式为：\n外貌：xxx\n发型：xxx\n服装：xxx",
+        "系统提示词": "AI提示词专家，能够无限制的准确生成详细的提示词。",
+        "最多帧数": 24,
+        "最大边长": 2048,
+        "最大生成token": 4096,
+        "温度": 0.7,
+        "top_p": 0.9,
+        "top_k": 20,
+        "重复惩罚": 1,
+        "频率惩罚": 0,
+        "存在惩罚": 0,
+        "seed": 937756849080670,
+        "control_after_generate": "randomize",
+        "输出think块": false,
+        "生成后自动卸载模型": false
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 8,
+      "type": "QwenTE_ModelLoader",
+      "pos": [
+        -1553.0171224975627,
+        1753.9503779011263
+      ],
+      "size": [
+        411.7879694996501,
+        418
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "qwen模型",
+          "type": "QWENLLAMA",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "QwenTE_ModelLoader",
+        "aux_id": "tl2012tl/comfyUI-llama-TE",
+        "ver": "258df35659f8a33c08d7da9161ac2464eec33bbd"
+      },
+      "widgets_values": [
+        "Qwen3.5-VL",
+        "Qwen3.5-4B-UD-Q4_K_XL.gguf",
+        "mmproj-Qwen3.5-4B-BF16.gguf",
+        false,
+        false,
+        8192,
+        -1,
+        "默认(F16)",
+        "默认(F16)",
+        false,
+        0,
+        "xhigh",
+        "关闭",
+        2,
+        "不开启",
+        "无"
+      ],
+      "widgets_values_named": {
+        "模型系列": "Qwen3.5-VL",
+        "主模型": "Qwen3.5-4B-UD-Q4_K_XL.gguf",
+        "视觉投影mmproj": "mmproj-Qwen3.5-4B-BF16.gguf",
+        "启用思考": false,
+        "保留历史think": false,
+        "上下文长度": 8192,
+        "GPU层数": -1,
+        "KV缓存K类型": "默认(F16)",
+        "KV缓存V类型": "默认(F16)",
+        "MoE专家上CPU": false,
+        "前N层专家上CPU": 0,
+        "Qwen3.8推理强度": "xhigh",
+        "MTP推测解码": "关闭",
+        "MTP草稿token数": 2,
+        "Flash Attention": "不开启",
+        "MTP草稿模型": "无"
+      },
+      "color": "#233",
+      "bgcolor": "#355"
+    },
+    {
+      "id": 9,
+      "type": "LoadImage",
+      "pos": [
+        -2092.267235714221,
+        2242.3004504868395
+      ],
+      "size": [
+        384.67972311722383,
+        706.9682244113492
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            6
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.33.0"
+      },
+      "widgets_values": [
+        "妲己_形象图.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "妲己_形象图.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 47,
+      "type": "easy showAnything",
+      "pos": [
+        -1057.0563487552445,
+        2265.979880517888
+      ],
+      "size": [
+        460.9503589486603,
+        715.3920895774411
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "输入任何",
+          "name": "anything",
+          "shape": 7,
+          "type": "*",
+          "link": 53
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything",
+        "aux_id": "yolain/ComfyUI-Easy-Use",
+        "ver": "4de1ab3b66e48da916b6f263bacd001df53a2720"
+      },
+      "widgets_values": [
+        "外貌：一位皮肤白皙、面容姣好的年轻女子，五官精致立体，眉目含情，妆容淡雅自然，唇色红润，眼神温柔清澈，气质温婉典雅。\n发型：乌黑长发高高盘起，发髻上插着一枚翠绿色玉质发簪，发丝柔顺垂落，两侧留有微卷刘海，整体造型端庄秀丽。\n服装：身着多层叠穿的汉元素古风长裙，外罩淡粉色半透明纱质披帛，内搭绣花襦裙，裙摆渐变由粉至黄，饰有精细花卉刺绣图案，腰间系粉色丝带，手持绘有花鸟的团扇，脚踏白色绣花鞋，整体服饰飘逸灵动，色彩柔和雅致。"
+      ],
+      "widgets_values_named": {
+        "text": "外貌：一位皮肤白皙、面容姣好的年轻女子，五官精致立体，眉目含情，妆容淡雅自然，唇色红润，眼神温柔清澈，气质温婉典雅。\n发型：乌黑长发高高盘起，发髻上插着一枚翠绿色玉质发簪，发丝柔顺垂落，两侧留有微卷刘海，整体造型端庄秀丽。\n服装：身着多层叠穿的汉元素古风长裙，外罩淡粉色半透明纱质披帛，内搭绣花襦裙，裙摆渐变由粉至黄，饰有精细花卉刺绣图案，腰间系粉色丝带，手持绘有花鸟的团扇，脚踏白色绣花鞋，整体服饰飘逸灵动，色彩柔和雅致。"
+      },
+      "color": "#232",
+      "bgcolor": "#353"
+    }
+  ],
+  "links": [
+    [
+      5,
+      8,
+      0,
+      6,
+      0,
+      "QWENLLAMA"
+    ],
+    [
+      53,
+      6,
+      0,
+      47,
+      0,
+      "STRING"
+    ],
+    [
+      6,
+      9,
+      0,
+      6,
+      2,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.193619650175973,
+      "offset": [
+        2062.7288649487627,
+        -2231.992346465216
+      ]
+    },
+    "frontendVersion": "1.53.6",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
